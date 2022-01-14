@@ -134,7 +134,7 @@ var audioTrack = WaveSurfer.create({
   loopSelection: true,
 });
 
-audioTrack.load("../audio/drums.mp3");
+audioTrack.load("audio/drums.mp3");
 audioTrack.setVolume(1);
 
 
@@ -278,7 +278,7 @@ audioTrack.on('ready', function(){
     loopSelection: true
   });
   
-  audioTrack.load("../audio/ambient.mp3");
+  audioTrack.load("audio/ambient.mp3");
   audioTrack.setVolume(0.3);
 
 
@@ -427,7 +427,7 @@ audioTrack.on('ready', function(){
     loopSelection: true
   });
   
-  audioTrack.load("../audio/base.mp3");
+  audioTrack.load("audio/base.mp3");
   audioTrack.setVolume(1.4);
 
   audioTrack.on('ready', function(){
@@ -574,7 +574,7 @@ audioTrack.on('ready', function(){
         loopSelection: true
       });
       
-      audioTrack.load("../audio/background.mp3");
+      audioTrack.load("audio/background.mp3");
       audioTrack.setVolume(0.6);
 
       audioTrack.on('ready', function(){
@@ -721,7 +721,7 @@ audioTrack.on('ready', function(){
           loopSelection: true
         });
         
-        audioTrack.load("../audio/melodic-loop.mp3");
+        audioTrack.load("audio/melodic-loop.mp3");
         audioTrack.setVolume(0.4);
         
         audioTrack.on('ready', function(){
@@ -867,7 +867,7 @@ audioTrack.on('ready', function(){
             loopSelection: true
           });
           
-          audioTrack.load("../audio/noise.mp3");
+          audioTrack.load("audio/noise.mp3");
           audioTrack.setVolume(0.3);
 
           audioTrack.on('ready', function(){
@@ -1013,7 +1013,7 @@ audioTrack.on('ready', function(){
               loopSelection: true
             });
             
-            audioTrack.load("../audio/piano.mp3");
+            audioTrack.load("audio/piano.mp3");
             audioTrack.setVolume(0.6);
 
             audioTrack.on('ready', function(){
@@ -1160,7 +1160,7 @@ audioTrack.on('ready', function(){
                 loopSelection: true
               });
                 
-              audioTrack.load("../audio/fx.mp3");
+              audioTrack.load("audio/fx.mp3");
               audioTrack.setVolume(0.6);
 
               audioTrack.on('ready', function(){
