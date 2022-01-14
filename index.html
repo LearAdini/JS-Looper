@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/1.3.7/wavesurfer.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/1.3.7/plugin/wavesurfer.regions.min.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css" />  
+  </head>
+  <body>
+    <nav class="top-bar">
+      &nbsp;
+      <a href="https://github.com/LearAdini/MoveoTask" target="_blank"><button id="github-btn"><i class="fab fa-github fa-3x"></i></button></a>
+      <a href="https://codepen.io/LearAdini/pen/xxXMZVy" target="_blank"><button id="codepen-btn" > <i class="fab fa-codepen fa-fw fa-3x"></i></a>
+      </nav>
+
+
+    <div class="container">
+      <li data-src="assets/drums.mp3" data-name="drums" data-index="0">
+        <p class="br">
+        <span class="song-name" onclick="loadWaveFormTrack1()"> Add<br>Drums</span>
+      </p>
+      <span class="track-btn btn">
+        &nbsp;<i class="fas fa-play" id="track1" onclick="togglePlay(this)"></i> 
+       </span>
+       <span class="stop-btn btn">             
+         <i class="fas fa-stop" id="stop1"></i>
+         
+         <span class="mute-btn btn">
+          <i class="fas fa-volume-mute" id="pause1"></i>
+        </span> 
+       </span>  
+       &nbsp;
+       &nbsp;               
+    </li>
+      <li data-src="assets/ambient.mp3" data-name="ambient" data-index="0">
+        <p class="br">
+        <span class="song-name" onclick="loadWaveFormTrack2()">Add Ambient</span>
+      </p>
+         <span class="track-btn btn">
+          &nbsp;<i class="fas fa-play" id="track2" onclick="togglePlay(this)"></i> 
+         </span>
+         <span class="stop-btn btn">
+          <i class="fas fa-stop" id="stop2"></i>
+        </span> 
+          <span class="mute-btn2 btn">             
+            <i class="fas fa-volume-mute" id="pause2"></i>
+          </span>  
+          &nbsp;
+          &nbsp;          
+      </li>
+
+          <li data-src="assets/base.mp3" data-name="base" data-index="0">
+            <p class="br">
+            <span class="song-name" onclick="loadWaveFormTrack3()">Add Baseline</span>
+            </p>
+             <span class="track-btn btn">
+              &nbsp;<i class="fas fa-play" id="track3" onclick="togglePlay(this)"></i>
+            </span>
+            <span class="stop-btn btn">
+             <i class="fas fa-stop" id="stop3"></i>
+           </span>  
+              <span class="mute-btn3 btn">             
+                <i class="fas fa-volume-mute" id="pause3"></i>
+              </span>  
+            &nbsp;
+              
+               &nbsp;
+            </li>
+        
+            <li data-src="assets/background.mp3" data-name="background" data-index="0">
+              <p class="br">
+              <span class="song-name" onclick="loadWaveFormTrack4()">Add Chimes</span>
+              </p>
+               <span class="track-btn btn">
+                &nbsp;<i class="fas fa-play" id="track4" onclick="togglePlay(this)"></i> 
+              </span>
+              <span class="stop-btn btn">
+               <i class="fas fa-stop" id="stop4"></i>
+             </span> 
+                <span class="mute-btn4 btn">             
+                  <i class="fas fa-volume-mute" id="pause4"></i>
+                </span>   
+              &nbsp;
+             
+                 &nbsp;
+              </li>
+        
+              <li data-src="assets/melodic-loop.mp3" data-name="melodic-loop" data-index="0">
+                <p class="br">
+                <span class="song-name" onclick="loadWaveFormTrack5()">Add Melody</span>
+                </p>
+                 <span class="track-btn btn">
+                  &nbsp;<i class="fas fa-play" id="track5" onclick="togglePlay(this)"></i>
+                </span>
+                <span class="stop-btn btn">
+                 <i class="fas fa-stop" id="stop5"></i>
+               </span> 
+                  <span class="mute-btn5 btn">             
+                    <i class="fas fa-volume-mute" id="pause5"></i>
+                  </span>  
+                &nbsp; 
+          
+                   &nbsp;          
+                </li>
+        
+                <li data-src="assets/noise.mp3" data-name="noise" data-index="0">
+                  <p class="br">
+                  <span class="song-name" onclick="loadWaveFormTrack6()">Add<br>Noise</span>
+                  </p>
+                   <span class="track-btn btn">
+                    &nbsp;<i class="fas fa-play" id="track6" onclick="togglePlay(this)"></i>
+                  </span>
+                  <span class="stop-btn btn">
+                   <i class="fas fa-stop" id="stop6"></i>
+                 </span> 
+                    <span class="mute-btn6 btn">             
+                      <i class="fas fa-volume-mute" id="pause6"></i>
+                    </span>  
+                    &nbsp;
+     
+                     &nbsp;          
+                  </li>
+        
+                  <li data-src="assets/piano.mp3" data-name="piano" data-index="0">
+                    <p class="br">
+                    <span class="song-name" onclick="loadWaveFormTrack7()">Add<br>Piano</span>
+                    </p>
+                     <span class="track-btn btn">
+                    &nbsp;<i class="fas fa-play" id="track7" onclick="togglePlay(this)"></i> 
+                    </span>
+                    <span class="stop-btn btn">
+                     <i class="fas fa-stop" id="stop7"></i>
+                   </span>                                 
+                      <span class="mute-btn7 btn">             
+                      <i class="fas fa-volume-mute" id="pause7"></i>
+                    </span>  
+                    </span>
+                      &nbsp;
+                    </span>                 
+                    &nbsp;         
+                    </li>
+
+                    <li data-src="assets/fx.mp3" data-name="fx" data-index="0">
+                      <p class="br">
+                      <span class="song-name" onclick="loadWaveFormTrack8()">Add<br>Audio FX</span>
+                      </p>
+                      <span class="track-btn btn">
+                        &nbsp;<i class="fas fa-play" id="track8" onclick="togglePlay(this)"></i> 
+                       </span>
+                       <span class="stop-btn btn">
+                        <i class="fas fa-stop" id="stop8" ></i>
+                      </span> 
+                        <span class="mute-btn8 btn">             
+                          <i class="fas fa-volume-mute" id="pause8"></i>
+                        </span>  
+                        &nbsp;
+                        &nbsp; 
+                      </li>
+                    <p></p>
+                               
+    <div class="audio-container">
+      <div class="audio"></div>
+      <div class="buttons">
+        <span class="play-btn btn">
+          <i class="fas fa-play" id="loop-play"></i>
+          <i class="fas fa-pause" id="loop-pause"></i>
+        </span>
+        <span class="stop-btn btn">
+          <i class="fas fa-stop" id="loop-stop"></i>
+        </span>
+        <span class="sync-btn btn">
+          <i class="fas fa-sync" id="loop-sync" onclick="toggleLooper(this)"></i>
+          <i class="fas fa-plus" id="plus-plus" onclick="addLooper(this)"></i>
+       
+        </span>
+        <span class="trash-btn btn">
+         <i class="far fa-trash-alt"></i>
+        </span>
+        <span class="info-btn btn">
+          <i class="fas fa-info" onclick="showInfo()"></i>
+         </span>
+        <span class="mute-btn btn" id="volume">     
+          <i class="fas fa-volume-up" id="volume-up"></i>
+          <i class="fas fa-volume-mute" id="volume-mute"></i>        
+        </span>
+
+        <input id="volume-bar"
+          type="range"
+          min="0"
+          max="1"
+          step="0.1"
+          value="0.7"
+          class="volume-slider"
+        />     
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <div class="card">
+    <h1 class="display-text"></h1>
+  </div>
+  <!-- <h1 class="display-text"></h1> -->
+  </body>
+</html>

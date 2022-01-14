@@ -1,0 +1,323 @@
+body { background-color: rgb(209, 163, 77)}
+
+p {border: 1.7px solid rgb(160, 160, 160);background-color: rgb(160, 160, 160);}
+
+a{text-decoration: none;}
+
+.btn{margin-left: 10px;}
+
+
+.track-btn{
+  transition:transform 0.1s;
+  animation-duration: 0.5s;
+}
+
+.track-btn:hover{
+  transform:scale(1.1);
+}
+
+h1{
+  text-align: center;
+  font-family: monospace;
+  font-weight: strong;
+  font-size: 26px;
+  animation: fadeIn 1.5s;
+  -webkit-animation: fadeIn 1.5s;
+  -moz-animation: fadeIn 1.5s;
+  -o-animation: fadeIn 1.5s;
+  -ms-animation: fadeIn 1.5s;
+  display: absolute;
+}
+
+.br{
+  border:1px solid rgb(194, 192, 192);
+  background-color:rgb(31, 31, 31);
+  color:rgb(194, 192, 192);
+  box-shadow:  0 0.2rem 0.1rem rgba(0, 0, 0, 0.568);
+  border-radius: 5px;
+  width: 70px;
+  margin-left: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition:transform 0.4s;
+  animation-duration: 2s;
+  animation-delay:0.3s;
+  animation-timing-function:ease-in;
+}
+
+.br:hover{
+  transform:scale(1.08); 
+  background-color:yellowgreen;
+  border: 1px solid rgb(31, 31, 31);
+  color:black;
+}
+
+li{
+  font-family: monospace;
+  font-weight: bold;
+  color:red;
+  border:solid 1px rgb(32, 32, 32);
+  border-radius: 5px;
+  display:inline-block;
+  width: 110px;
+  box-shadow: 0 0rem 1rem 0rem rgba(0, 0, 0, 0.3);
+  margin-top: 5px;
+  margin-left: 35px;
+  background-color:  rgb(167, 162, 156);
+  cursor: default;
+}
+
+li i{
+  transition:transform 0.1s;
+  animation-duration: 0.5s
+}
+
+li i:hover{transform:scale(1.1);}
+
+.container{
+  box-shadow: 0 1rem 1rem 1rem rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  max-width: 40rem;
+  margin-left: 33.65%;
+  margin-top: 120px;
+  background-color: rgb(31, 31, 31);
+  display: inline-block;
+  animation: fadeIn 2s;
+  -webkit-animation: fadeIn 2s;
+  -moz-animation: fadeIn 2s;
+  -o-animation: fadeIn 2s;
+  -ms-animation: fadeIn 2s;
+}
+
+.audio-container{
+  width: 600px;
+  font-family: "Roboto", sans-serif;
+  position: relative;
+  overflow: hidden;
+  margin-left: 20px;
+  cursor: default;
+  border-radius: 8px 8px 0 0; 
+  background-color: rgb(24, 24, 24);
+}
+
+.audio-container .btn{
+  display: inline-block;
+  padding: 16px;
+  width: 5px;
+  height: 30px; 
+}
+
+.trash-btn,.sync-btn{
+  transition:transform 0.1s;
+  animation-duration: 0.5s;
+  max-height: 1px;
+  width: -15px;
+  padding-right: 10px;
+}
+
+.trash-btn:hover,.sync-btn:hover{transform:scale(1.1);}
+
+.top-bar{
+  background-color: rgb(41, 41, 41);
+  border-radius: 0px 0px 10px 10px;
+  margin-top: -10px; 
+  width: 100%;
+  height:75px;
+  display:block;
+}
+
+#github-btn{
+  width:40px;
+  height:45px;
+  cursor: pointer;
+  margin-left: 46.8%;
+  background-color: rgba(0, 0, 0, 0);
+  border: solid rgba(0, 0, 0, 0);
+}
+
+.fa-github{
+  margin-top: 15px;
+  width:45px;
+  height:45px;
+  align-content: center;
+  display: flex;
+  color:white;
+  transition:transform 0.1s;
+  animation-duration: 0.5s;
+}
+
+.fa-github:hover{transform:scale(1.1);}
+
+#codepen-btn{
+  cursor: pointer;
+  margin-left: 1%;
+  background-color: rgba(0, 0, 0, 0);
+  border: solid rgba(0, 0, 0, 0);
+}
+
+.fa-codepen{
+  margin-top: 15px;
+  width:45px;
+  height:45px;
+  align-content: center;
+  display: flex;
+  color:white;
+  transition:transform 0.1s;
+  animation-duration: 0.5s;
+}
+
+.fa-codepen:hover{transform:scale(1.1);}
+
+.info-btn{
+  color:magenta;
+  cursor:pointer;
+  transition:transform 0.1s;
+  animation-duration: 0.5s;
+}
+
+.info-btn:hover {transform:scale(1.1);}
+
+.card{
+  display: none;
+  margin-top: -15px;
+  width: 580px;
+  height:430px;
+  margin-left: 35.2%;
+  border-radius: 15px;
+  background-color:rgba(104, 104, 104, 0.705);
+  box-shadow: 0 0.3rem 0 0 rgba(0, 0, 0, 0.3);
+}
+
+#para-inst{
+  font-size: 15px;
+  margin-top: -29px;
+  margin-right: 195px;
+  color: black;
+}
+
+#para-play{
+  font-size: 15px;
+  margin-top: -29px;
+  margin-right: -40px;
+  color: black;
+}
+
+#para-loop{
+  font-size: 15px;
+  margin-top: -29px;
+  margin-left: 115px;
+  text-align: left;
+  color: black;
+}
+
+#para-sync{
+  font-size: 15px;
+  text-align: left;
+  color: black;
+  margin-left: 115px;
+  margin-top: -65px;
+}
+
+#para-plus{
+  font-size: 15px;
+  text-align: left;
+  color: black;
+  margin-left: 114px;
+  margin-top: -25px;
+}
+
+#para-trash{
+  font-size: 15px;
+  color: black;
+  margin-right: 179px;
+  margin-top: -25px;
+}
+
+#info-trash{
+  color:white;
+  margin-right: 469px;
+ margin-top:20px;
+}
+
+#info-plus{
+  color:white;
+  margin-right: 469px;
+}
+
+#info-sync{
+  color:white;
+  margin-right: 468px;
+  margin-bottom: 45px;
+}
+
+#info-playLoop{
+  color:red;
+  margin-right: 465px;
+}
+#info-play{
+  color:rgb(255, 255, 255);
+  margin-right: 465px;
+}
+
+#info-add-inst{
+font-size: 10px;
+}
+
+#volume{ margin-right: 80px;margin-top: 15px;}
+
+#volume-bar{ margin-bottom: -4px;}
+
+#volume-up,#volume-mute{margin-left:70px; }
+
+
+#loop-play,#loop-stop,#loop-sync,#volume-up,.trash-btn{color:white;}
+
+#loop-pause,#volume-mute,#loop-play:hover{color:rgb(155, 8, 8);}
+
+#loop-stop:hover{color:rgb(230, 85, 2);}
+
+#plus-plus{display:none; color:white;}
+
+.fa-volume-up,.fa-volume-mute,.fa-sync,.fa-plus,.fa-stop,.fa-play,.fa-pause,.volume-slider,.trash-btn
+{cursor: pointer;}
+
+
+.audio-container .volume-slider {width: 200px;}
+
+.audio-container .buttons .play-btn .fa-pause {display: none;}
+
+.audio-container .buttons .play-btn.playing .fa-pause {display: inline-block;}
+
+.audio-container .buttons .play-btn.play-btn.playing .fa-play {display: none;}
+
+.audio-container .buttons .mute-btn .fa-volume-mute {display: none;}
+
+.audio-container .buttons .mute-btn.muted .fa-volume-mute {display: inline-block;}
+
+.audio-container .buttons .mute-btn.muted .fa-volume-up {display: none;}
+
+  
+@keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-moz-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-o-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-ms-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
