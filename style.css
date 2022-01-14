@@ -7,6 +7,16 @@ a{text-decoration: none;}
 .btn{margin-left: 10px;}
 
 
+#footer {
+  position: fixed;
+  bottom: 0px;
+  background-color: rgba(19, 18, 18, 0.685);
+  width: 100%;
+  text-align: center;
+  color:white;
+  font-family: monospace;
+}
+
 .track-btn{
   transition:transform 0.1s;
   animation-duration: 0.5s;
