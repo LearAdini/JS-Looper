@@ -199,6 +199,8 @@ li i:hover{transform:scale(1.1);}
   box-shadow: 0 0.3rem 0 0 rgba(0, 0, 0, 0.3);
 }
 
+#tamb{font-size: 10px;}
+
 #para-inst{
   font-size: 15px;
   margin-top: -29px;

@@ -112,14 +112,14 @@ var audioTrack = WaveSurfer.create({
 });
 
 
-audioTrack.load("audio/drums.mp3"); // Load track from audio directory.
+audioTrack.load("audio/DRUMS.mp3"); // Load track from audio directory.
 audioTrack.setVolume(1);
 
 audioTrack.on('ready', function(){ // When loaded add regions plugin (loop selection).
   audioTrack.addRegion({
     id: 1,
-    start: 0, // Where loop starts
-    end: 2.98,// Where loop ends
+    start: 6, // Where loop starts
+    end: 14,// Where loop ends
     color: 'hsla(254, 84%, 53%, 0.1)',   
     drag: true, // Can drag
     resize: true, // Can resize
@@ -141,7 +141,7 @@ audioTrack.on('ready', function(){ // When loaded add regions plugin (loop selec
   const addSyncTrackBtn = document.getElementById("plus-plus1");
 
 
-    // Prevents spamming add instrument button
+    // Prevents spamming add instrument button.
     addTrack.addEventListener("click", ()=>{
     audioTrack.destroy();
     });
@@ -268,15 +268,15 @@ audioTrack.on('ready', function(){ // When loaded add regions plugin (loop selec
     loopSelection: true
   });
   
-  audioTrack.load("audio/ambient.mp3");
+  audioTrack.load("audio/_tambourine_shake_higher.mp3");
   audioTrack.setVolume(0.3);
 
 
   audioTrack.on('ready', function(){
     audioTrack.addRegion({
       id: 2,
-      start: 0, 
-      end: 3, 
+      start: 0.3, 
+      end: 4, 
       color: 'hsla(74, 86%, 54%, 0.1)',         
       drag: true,
       resize: true,
@@ -420,14 +420,14 @@ audioTrack.on('ready', function(){ // When loaded add regions plugin (loop selec
     loopSelection: true
   });
   
-  audioTrack.load("audio/base.mp3");
+  audioTrack.load("audio/JIBRISH.mp3");
   audioTrack.setVolume(1.4);
 
   audioTrack.on('ready', function(){
     audioTrack.addRegion({
       id: 3,
       start: 9, 
-      end: 12, 
+      end: 11, 
       color: 'hsla(0, 100%, 30%, 0.1)',         
       drag: true,
       resize: true,
@@ -466,11 +466,11 @@ audioTrack.on('ready', function(){ // When loaded add regions plugin (loop selec
       });});
   
   
-    stopSyncBtn.addEventListener("click", () => {
+      stopSyncBtn.addEventListener("click", () => {
       audioTrack.clearRegions(); 
       });
   
-        addSyncTrackBtn.addEventListener("click", () => {
+      addSyncTrackBtn.addEventListener("click", () => {
       audioTrack.clearRegions(); 
       audioTrack.addRegion({
         id: 3,
@@ -483,7 +483,7 @@ audioTrack.on('ready', function(){ // When loaded add regions plugin (loop selec
       });});
   
   
-    stopSyncTrackBtn.addEventListener("click", () => {
+      stopSyncTrackBtn.addEventListener("click", () => {
       audioTrack.clearRegions(); 
       });
   
@@ -569,13 +569,13 @@ audioTrack.on('ready', function(){ // When loaded add regions plugin (loop selec
         loopSelection: true
       });
       
-      audioTrack.load("audio/background.mp3");
+      audioTrack.load("audio/HIGH_VOC.mp3");
       audioTrack.setVolume(0.6);
 
       audioTrack.on('ready', function(){
         audioTrack.addRegion({
           id: 4,
-          start: 6, 
+          start: 8, 
           end: 12, 
           color: 'hsla(187, 100%, 30%, 0.1)',         
           drag: true,
@@ -720,7 +720,7 @@ audioTrack.on('ready', function(){ // When loaded add regions plugin (loop selec
           loopSelection: true
         });
         
-        audioTrack.load("audio/melodic-loop.mp3");
+        audioTrack.load("audio/HE_HE_VOC.mp3");
         audioTrack.setVolume(0.4);
         
         audioTrack.on('ready', function(){
@@ -871,7 +871,7 @@ audioTrack.on('ready', function(){ // When loaded add regions plugin (loop selec
             loopSelection: true
           });
           
-          audioTrack.load("audio/noise.mp3");
+          audioTrack.load("audio/B_VOC.mp3");
           audioTrack.setVolume(0.3);
 
           audioTrack.on('ready', function(){
@@ -1023,7 +1023,7 @@ audioTrack.on('ready', function(){ // When loaded add regions plugin (loop selec
               loopSelection: true
             });
             
-            audioTrack.load("audio/piano.mp3");
+            audioTrack.load("audio/LEAD_1.mp3");
             audioTrack.setVolume(0.6);
 
             audioTrack.on('ready', function(){
@@ -1172,14 +1172,14 @@ audioTrack.on('ready', function(){ // When loaded add regions plugin (loop selec
                 loopSelection: true
               });
                 
-              audioTrack.load("audio/fx.mp3");
+              audioTrack.load("audio/UUHO_VOC.mp3");
               audioTrack.setVolume(0.6);
 
               audioTrack.on('ready', function(){
                 audioTrack.addRegion({
                   id: 8,
                   start: 5, 
-                  end: 6, 
+                  end: 7, 
                   color: 'hsla(100, 100%, 30%, 0.1)',         
                   drag: true,
                   resize: true,
