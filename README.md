@@ -32,7 +32,7 @@ Using [wavesurfer.js](https://wavesurfer-js.org/) to display the waveform visual
 
 >![looperGif](https://user-images.githubusercontent.com/80118008/149633444-bd524bc1-7408-4133-bf51-1545856fae1c.gif)
 
-#Loop
+# Loop
 
 **- Wait for audio cursor to "hit" the start of the loop region,**
 
