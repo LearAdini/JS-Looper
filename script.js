@@ -141,14 +141,14 @@ audioTrack.on('ready', function(){ // When loaded add regions plugin (loop selec
   const addSyncTrackBtn = document.getElementById("plus-plus1");
 
 
-  // Prevents spamming add instrument button
-  addTrack.addEventListener("click", ()=>{
+    // Prevents spamming add instrument button
+    addTrack.addEventListener("click", ()=>{
     audioTrack.destroy();
-  });
+    });
 
 
-  // When plus-plus button is clicked add loop regions again of this track.
-  addSyncBtn.addEventListener("click", () => {
+    // When plus-plus white button is clicked add loop regions again of this track.
+    addSyncBtn.addEventListener("click", () => {
     audioTrack.clearRegions(); 
     audioTrack.addRegion({
         id: 1,
@@ -161,12 +161,14 @@ audioTrack.on('ready', function(){ // When loaded add regions plugin (loop selec
       });});
 
 
-    // When loop-sync button is clicked remove loop origins of this track.
-  stopSyncBtn.addEventListener("click", () => {
+    // When loop-sync white button is clicked remove loop origins of this track.   
+    stopSyncBtn.addEventListener("click", () => {
     audioTrack.clearRegions(); 
     });
 
-      addSyncTrackBtn.addEventListener("click", () => {
+
+    // When plus-plus red button is clicked add loop regions again of this track.
+    addSyncTrackBtn.addEventListener("click", () => {
     audioTrack.clearRegions(); 
     audioTrack.addRegion({
         id: 1,
@@ -179,7 +181,8 @@ audioTrack.on('ready', function(){ // When loaded add regions plugin (loop selec
       });});
 
 
-  stopSyncTrackBtn.addEventListener("click", () => {
+    // When loop-sync red button is clicked remove loop origins of this track.
+    stopSyncTrackBtn.addEventListener("click", () => {
     audioTrack.clearRegions(); 
     });
 
@@ -202,7 +205,7 @@ audioTrack.on('ready', function(){ // When loaded add regions plugin (loop selec
     });
 
 
-  // When white play button is clicked play or pause this track.
+    // When white play button is clicked play or pause this track.
     playBtn.addEventListener("click", () => {
       audioTrack.playPause();
       togglePlay(trackBtn);
@@ -214,7 +217,7 @@ audioTrack.on('ready', function(){ // When loaded add regions plugin (loop selec
     });
 
 
-  // When red mute button is clicked mute this track.
+    // When red mute button is clicked mute this track.
     muteTrackBtn.addEventListener("click",()=>{
       if(audioTrack.isPlaying())
       {
@@ -224,33 +227,24 @@ audioTrack.on('ready', function(){ // When loaded add regions plugin (loop selec
       }
     });
   
-
-  
-  // When white stop button is clicked stop this track.  
+ 
+    // When white stop button is clicked stop this track.  
     stopLoopBtn.addEventListener("click", () => {
       audioTrack.stop();
       playBtn.classList.remove("playing");
       toggleStop(trackBtn);
     });
 
-    
+    // Changing volume slider when mouseup.
     volumeSlider.addEventListener("mouseup", () => {
       changeVolume(volumeSlider.value);
     });
 
-    
     const changeVolume = (volume) => {
-      if (volume == 0) {
-        muteBtn.classList.add("muted");
-      }
-       else 
-      {
-        muteBtn.classList.remove("muted");
-      }
       audioTrack.setVolume(volume);
     };
     
-
+    // if muted set volume to 1, if not muted mute.
     muteBtn.addEventListener("click", () => {
       if (muteBtn.classList.contains("muted")) {
         muteBtn.classList.remove("muted");
@@ -900,8 +894,7 @@ audioTrack.on('ready', function(){ // When loaded add regions plugin (loop selec
             const addTrack = document.querySelector(".add-track6");
             const stopLoopBtn = document.getElementById("loop-stop");
             const stopSyncBtn = document.getElementById("loop-sync");
-            const addSyncBtn = document.getElementById("plus-plus");
-          
+            const addSyncBtn = document.getElementById("plus-plus");     
             const stopSyncTrackBtn = document.getElementById("loop-sync6");
             const addSyncTrackBtn = document.getElementById("plus-plus6");
           

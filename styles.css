@@ -277,7 +277,7 @@ font-size: 10px;
 
 #volume-bar{ margin-bottom: -4px;}
 
-#volume-up,#volume-mute{margin-left:70px; }
+#volume-up,#volume-mute{margin-left:70px;  cursor:default;}
 
 
 #loop-play,#loop-stop,#loop-sync,#volume-up,.trash-btn{color:white;}
@@ -305,11 +305,7 @@ font-size: 10px;
 
 .audio-container .buttons .play-btn.play-btn.playing .fa-play {display: none;}
 
-.audio-container .buttons .mute-btn .fa-volume-mute {display: none;}
 
-.audio-container .buttons .mute-btn.muted .fa-volume-mute {display: inline-block;}
-
-.audio-container .buttons .mute-btn.muted .fa-volume-up {display: none;}
 
   
 @keyframes fadeIn {

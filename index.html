@@ -28,7 +28,7 @@
     <div class="container">
       <li data-src="audio/drums.mp3" data-name="drums" data-index="0">
         <p class="br">
-        <span class="add-track1" onclick="loadWaveFormTrack1()">Add Drums</span>
+        <span class="add-track1" onclick="loadWaveFormTrack1()">Add &nbsp;Drums</span>
       </p>
          <span class="track-btn btn">
           &nbsp;<i class="fas fa-play" id="track1" onclick="togglePlay(this)"></i> 
@@ -37,9 +37,6 @@
           <i class="fas fa-sync" id="loop-sync1" onclick="toggleLooper(this,1)"></i> 
           <i class="fas fa-plus" id="plus-plus1" onclick="addLooper(this,1)"></i>    
         </span>
-         <!-- <span class="stop-btn btn">
-          <i class="fas fa-stop" id="stop1"></i>
-        </span>  -->
           <span class="mute-btn1 btn">             
             <i class="fas fa-volume-mute" id="pause1" onclick="toggleMute(this)"></i>
           </span>  
@@ -193,12 +190,11 @@
         <span class="trash-btn btn">
          <i class="far fa-trash-alt"></i>
         </span>
-        <span class="info-btn btn"onclick="showInfo()"> <!--showInfo toggles .card (line:216)-->
+        <span class="info-btn btn"onclick="showInfo()"> <!--showInfo toggles .card (line:212)-->
           <i class="fas fa-info"></i>
          </span>
         <span class="mute-btn btn" id="volume">     
-          <i class="fas fa-volume-up" id="volume-up"></i>
-          <i class="fas fa-volume-mute" id="volume-mute"></i>        
+          <i class="fas fa-volume-up" id="volume-up"></i>     
         </span>
         <input id="volume-bar"
           type="range"
