@@ -370,7 +370,7 @@ audioTrack.on('ready', function(){ // When loaded add regions plugin (loop selec
         {
         audioTrack.setVolume(0);
         }else if(audioTrack.getMute() == true){
-          audioTrack.setVolume(1);
+          audioTrack.setVolume(0.3);
         }
       });
 
@@ -401,7 +401,7 @@ audioTrack.on('ready', function(){ // When loaded add regions plugin (loop selec
       muteBtn.addEventListener("click", () => {
         if (muteBtn.classList.contains("muted")) {
           muteBtn.classList.remove("muted");
-          audioTrack.setVolume(1);
+          audioTrack.setVolume(0.3);
         } else {
           audioTrack.setVolume(0);
           muteBtn.classList.add("muted");
@@ -520,7 +520,7 @@ audioTrack.on('ready', function(){ // When loaded add regions plugin (loop selec
         {
         audioTrack.setVolume(0);
         }else if(audioTrack.getMute() == true){
-          audioTrack.setVolume(1);
+          audioTrack.setVolume(1.4);
         }
       });
     
@@ -551,7 +551,7 @@ audioTrack.on('ready', function(){ // When loaded add regions plugin (loop selec
       muteBtn.addEventListener("click", () => {
         if (muteBtn.classList.contains("muted")) {
           muteBtn.classList.remove("muted");
-          audioTrack.setVolume(1);
+          audioTrack.setVolume(1.4);
         } else {
           audioTrack.setVolume(0);
           muteBtn.classList.add("muted");
@@ -669,7 +669,7 @@ audioTrack.on('ready', function(){ // When loaded add regions plugin (loop selec
             {
             audioTrack.setVolume(0);
             }else if(audioTrack.getMute() == true){
-              audioTrack.setVolume(1);
+              audioTrack.setVolume(0.6);
             }
           });
         
@@ -702,7 +702,7 @@ audioTrack.on('ready', function(){ // When loaded add regions plugin (loop selec
           muteBtn.addEventListener("click", () => {
             if (muteBtn.classList.contains("muted")) {
               muteBtn.classList.remove("muted");
-              audioTrack.setVolume(1);
+              audioTrack.setVolume(0.6);
             } else {
               audioTrack.setVolume(0);
               muteBtn.classList.add("muted");
@@ -820,7 +820,7 @@ audioTrack.on('ready', function(){ // When loaded add regions plugin (loop selec
               {
               audioTrack.setVolume(0);
               }else if(audioTrack.getMute() == true){
-                audioTrack.setVolume(1);
+                audioTrack.setVolume(0.4);
               }
             });
           
@@ -853,7 +853,7 @@ audioTrack.on('ready', function(){ // When loaded add regions plugin (loop selec
             muteBtn.addEventListener("click", () => {
               if (muteBtn.classList.contains("muted")) {
                 muteBtn.classList.remove("muted");
-                audioTrack.setVolume(1);
+                audioTrack.setVolume(0.4);
               } else {
                 audioTrack.setVolume(0);
                 muteBtn.classList.add("muted");
@@ -872,7 +872,7 @@ audioTrack.on('ready', function(){ // When loaded add regions plugin (loop selec
           });
           
           audioTrack.load("audio/B_VOC.mp3");
-          audioTrack.setVolume(0.3);
+          audioTrack.setVolume(0.7);
 
           audioTrack.on('ready', function(){
             audioTrack.addRegion({
@@ -973,7 +973,7 @@ audioTrack.on('ready', function(){ // When loaded add regions plugin (loop selec
                 {
                 audioTrack.setVolume(0);
                 }else if(audioTrack.getMute() == true){
-                  audioTrack.setVolume(1);
+                  audioTrack.setVolume(0.7);
                 }
               });
 
@@ -1005,7 +1005,7 @@ audioTrack.on('ready', function(){ // When loaded add regions plugin (loop selec
               muteBtn.addEventListener("click", () => {
                 if (muteBtn.classList.contains("muted")) {
                   muteBtn.classList.remove("muted");
-                  audioTrack.setVolume(1);
+                  audioTrack.setVolume(0.7);
                 } else {
                   audioTrack.setVolume(0);
                   muteBtn.classList.add("muted");
@@ -1123,7 +1123,7 @@ audioTrack.on('ready', function(){ // When loaded add regions plugin (loop selec
                   {
                   audioTrack.setVolume(0);
                   }else if(audioTrack.getMute() == true){
-                    audioTrack.setVolume(1);
+                    audioTrack.setVolume(0.6);
                   }
                 });
   
@@ -1154,7 +1154,7 @@ audioTrack.on('ready', function(){ // When loaded add regions plugin (loop selec
                 muteBtn.addEventListener("click", () => {
                   if (muteBtn.classList.contains("muted")) {
                     muteBtn.classList.remove("muted");
-                    audioTrack.setVolume(1);
+                    audioTrack.setVolume(0.6);
                   } else {
                     audioTrack.setVolume(0);
                     muteBtn.classList.add("muted");
@@ -1272,7 +1272,7 @@ audioTrack.on('ready', function(){ // When loaded add regions plugin (loop selec
                     {
                     audioTrack.setVolume(0);
                     }else if(audioTrack.getMute() == true){
-                      audioTrack.setVolume(1);
+                      audioTrack.setVolume(0.6);
                     }
                   });
     
@@ -1303,7 +1303,7 @@ audioTrack.on('ready', function(){ // When loaded add regions plugin (loop selec
                   muteBtn.addEventListener("click", () => {
                     if (muteBtn.classList.contains("muted")) {
                       muteBtn.classList.remove("muted");
-                      audioTrack.setVolume(1);
+                      audioTrack.setVolume(0.6);
                     } else {
                       audioTrack.setVolume(0);
                       muteBtn.classList.add("muted");
