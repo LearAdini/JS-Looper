@@ -28,8 +28,18 @@ Using [wavesurfer.js](https://wavesurfer-js.org/) to display the waveform visual
 #
 
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**You can resize loop length and change the loop selection position**
+**- You can resize loop length and change the loop selection position**
+
 >![looperGif](https://user-images.githubusercontent.com/80118008/149633444-bd524bc1-7408-4133-bf51-1545856fae1c.gif)
+
+#
+
+**- Wait for audio cursor to "hit" the start of the loop region,**
+
+**when it hits the end of the loop region it will loop back to the beginning of the loop region.**
+
+>![loopDemo](https://user-images.githubusercontent.com/80118008/149635463-623a0fa5-ce6a-42ca-b1a0-4311db534e93.gif)
+
 
 <!-- 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![looper--aw](https://user-images.githubusercontent.com/80118008/149631675-4f72ce91-9bcd-4d5d-9db7-75add428d748.PNG) -->
