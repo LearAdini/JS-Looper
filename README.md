@@ -11,7 +11,7 @@
 
 **● Font-Awesome**
 
-*link: https://moveoproject.herokuapp.com/*
+***link:*** **https://moveoproject.herokuapp.com**
 
 #
 
