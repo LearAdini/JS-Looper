@@ -28,7 +28,7 @@ Using [wavesurfer.js](https://wavesurfer-js.org/) to display the waveform visual
 #
 
 
-**You can resize loop length and change the loop selection position**
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**You can resize loop length and change the loop selection position**
 >![looperGif](https://user-images.githubusercontent.com/80118008/149633444-bd524bc1-7408-4133-bf51-1545856fae1c.gif)
 
 <!-- 
