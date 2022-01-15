@@ -17,7 +17,7 @@
 
 This is an interview task I made where you can add eight different instruments and play them simultaneously or individually.
 
-You can loop each track and change loop position / length.
+You can loop each track and change loop position / length. ***wait for audio cursor to ["hit"](#Loop) the loop start region.***
 
 You can play and pause all tracks or just one instrument.
 
@@ -32,7 +32,7 @@ Using [wavesurfer.js](https://wavesurfer-js.org/) to display the waveform visual
 
 >![looperGif](https://user-images.githubusercontent.com/80118008/149633444-bd524bc1-7408-4133-bf51-1545856fae1c.gif)
 
-#
+#Loop
 
 **- Wait for audio cursor to "hit" the start of the loop region,**
 
