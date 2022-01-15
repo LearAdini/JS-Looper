@@ -53,4 +53,11 @@ Using [wavesurfer.js](https://wavesurfer-js.org/) to display the waveform visual
 ![add-inst](https://user-images.githubusercontent.com/80118008/149615821-2d227d89-001e-4f67-bd0b-ffe51504169b.PNG) -->
 
 
+<!-- ***Note:***
+
+>When I started building the project, I used audio samples that I found from [looperman](https://looperman.com/), This is the link: 
+>
+>https://moveoproject-v1.herokuapp.com/ -->
+
+
 
