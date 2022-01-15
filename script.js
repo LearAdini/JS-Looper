@@ -112,7 +112,7 @@ var audioTrack = WaveSurfer.create({
 });
 
 
-audioTrack.load("audio/DRUMS.mp3"); // Load track from audio directory.
+audioTrack.load("audio/drums_.mp3"); // Load track from audio directory.
 audioTrack.setVolume(1);
 
 audioTrack.on('ready', function(){ // When loaded add regions plugin (loop selection).
