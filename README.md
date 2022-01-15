@@ -27,7 +27,12 @@ Using [wavesurfer.js](https://wavesurfer-js.org/) to display the waveform visual
 
 #
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![looper--aw](https://user-images.githubusercontent.com/80118008/149631675-4f72ce91-9bcd-4d5d-9db7-75add428d748.PNG)
+
+**You can resize loop length and change the loop selection position**
+>![looperGif](https://user-images.githubusercontent.com/80118008/149633444-bd524bc1-7408-4133-bf51-1545856fae1c.gif)
+
+<!-- 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![looper--aw](https://user-images.githubusercontent.com/80118008/149631675-4f72ce91-9bcd-4d5d-9db7-75add428d748.PNG) -->
 
 
 <!-- ![looper](https://user-images.githubusercontent.com/80118008/149616188-70d157f8-5e2a-4852-84f4-c3bac0436a0f.PNG) -->
