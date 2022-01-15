@@ -11,7 +11,7 @@
 
 **● Font-Awesome**
 
-*link*
+*link: https://moveoproject.herokuapp.com/*
 
 #
 
@@ -27,7 +27,12 @@ Using [wavesurfer.js](https://wavesurfer-js.org/) to display the waveform visual
 
 #
 
-![looper](https://user-images.githubusercontent.com/80118008/149616188-70d157f8-5e2a-4852-84f4-c3bac0436a0f.PNG)
+![looper-aw](https://user-images.githubusercontent.com/80118008/149631454-ea1566d1-0c06-4bbd-b5d3-66fcaaa2edd5.PNG)
+
+
+
+
+<!-- ![looper](https://user-images.githubusercontent.com/80118008/149616188-70d157f8-5e2a-4852-84f4-c3bac0436a0f.PNG) -->
 
 #
 
