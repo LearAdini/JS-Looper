@@ -288,8 +288,13 @@ font-size: 10px;
 
 #plus-plus{display:none; color:white;}
 
-.fa-volume-up,.fa-volume-mute,.fa-sync,.fa-plus,.fa-stop,.fa-play,.fa-pause,.volume-slider,.trash-btn
-{cursor: pointer;}
+#plus-plus1,#plus-plus2,#plus-plus3,#plus-plus4,#plus-plus5,#plus-plus6,#plus-plus7,#plus-plus8{display:none; color:red;}
+
+#loop-sync1,#loop-sync2,#loop-sync3,#loop-sync4,#loop-sync5,#loop-sync6,#loop-sync7,#loop-sync8{color:red;margin-left: -3px; }
+
+.mute-btn1,.mute-btn2,.mute-btn3,.mute-btn4,.mute-btn5,.mute-btn6,.mute-btn7,.mute-btn8{margin-left: -3px}
+
+.fa-volume-up,.fa-volume-mute,.fa-sync,.fa-plus,.fa-stop,.fa-play,.fa-pause,.volume-slider,.trash-btn{cursor: pointer;}
 
 
 .audio-container .volume-slider {width: 200px;}

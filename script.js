@@ -1,61 +1,56 @@
 function togglePlay(x) {
   x.classList.toggle("fa-pause");
   x.classList.toggle("fa-play");
-  // checkStop(x); 
+};
+
+function toggleStop(x) {
+ x.classList.add("fa-play");
+ x.classList.remove("fa-pause");
 };
 
 function toggleLooper(x){
   x.classList.toggle("fa-plus");
   const startSyncBtn = document.getElementById("plus-plus");
   startSyncBtn.style.display= `inline-block`;
+  
   const SyncBtn = document.getElementById("loop-sync");
   SyncBtn.style.display = `none`;
 };
 
-// function checkStop(x){
- 
- 
-//   if (x.classList == "fa-pause") {
-//     x.classList == "fa-play";
-//     playBtn.classList.add("playing");
-//   } else{
-//     x.classList == "fa-play";
-//     playBtn.classList.remove("playing");
-//   }
+function toggleMute(x){
+  x.classList.toggle("fa-volume-mute");
+  x.classList.toggle("fa-volume-up");
+}
 
-    // x.classList.toggle("fa-play");
-    // x.classList.toggle("fa-play");
-  
-  // const startSyncBtn = document.getElementById("plus-plus");
-  // startSyncBtn.style.display= `inline-block`;
-  // const SyncBtn = document.getElementById("loop-sync");
-  // SyncBtn.style.display = `none`;
-  
-  // x.classList.toggle("fa-plus");
-  // const startSyncBtn = document.getElementById("fa-pause");
-  // if(x.classList == "fa-pause")
-  // {
- 
-  // // x.style.display= `none`;
-  // x.classList =`fa-play`;
-  // x.style.display = `inline-block`;
-  //}
-  // x.classList.toggle("fa-play");
-  // x.classList.toggle("fa-stop");
 
-//   x.classList.toggle("fa-plus");
-//  const playBtn = document.querySelector(".track-btn");
-//  const stopBtn = document.querySelector("#loop-stop");
+/// Section: toggle loop on/off for each track
+function toggleLooper(x,n){
+  x.classList.toggle("fa-plus");
+  const startSyncBtn = document.getElementById("plus-plus"+n);
+  startSyncBtn.style.display= `inline-block`; 
 
-//  if()
+  const SyncBtn = document.getElementById("loop-sync"+n);
+  SyncBtn.style.display = `none`;
+};
 
-//   const startSyncBtn = document.getElementById("plus-plus");
-//   startSyncBtn.style.display= `inline-block`;
-//     const SyncBtn = document.getElementById("loop-sync");
-//   SyncBtn.style.display = `none`;
-//};
+function addLooper(x,n){
+  const SyncBtn = document.getElementById("loop-sync"+n);
+  SyncBtn.style.display = `inline-block`;
 
-function addLooper(x){
+  const startSyncBtn = document.getElementById("plus-plus"+n);
+  startSyncBtn.style.display= `none`;
+};
+
+function toggleLooperAll(x){
+  x.classList.toggle("fa-plus");
+  const startSyncBtn = document.getElementById("plus-plus");
+  startSyncBtn.style.display= `inline-block`; 
+
+  const SyncBtn = document.getElementById("loop-sync");
+  SyncBtn.style.display = `none`;
+};
+
+function addLooperAll(x){
   const SyncBtn = document.getElementById("loop-sync");
   SyncBtn.style.display = `inline-block`;
 
@@ -63,14 +58,12 @@ function addLooper(x){
   startSyncBtn.style.display= `none`;
 };
 
-function togglePlayLoop(x) {
-  x.classList.toggle("fa-pause");
-  x.classList.toggle("fa-play");
-};
+///
 
 function showInfo(){
-  var x = document.querySelector(".card");
+  var x = document.querySelector(".card"); //.card is the info pop up
   
+  //if .card is not displayed when info button is clicked display .card as inline-block and manipulate DOM element h1's innerHTML
   if (x.style.display == "none")
    {
     x.style.display = `inline-block`;
@@ -79,7 +72,7 @@ function showInfo(){
    
     h1.innerHTML = `
     <p id ="info-add-inst" class="br">
-    <span class="song-name">Add<br>Piano</span>  
+    <span class="add-track1">Add<br>Piano</span>  
     </p><h4 id="para-inst">&nbsp;&nbsp;- Add an instrument</h4>
     <br>
     <i id="info-play" class="fas fa-play"></i>
@@ -97,175 +90,178 @@ function showInfo(){
     <h4 id="para-trash">- Remove instruments</h4>
     `;  
   } 
-
+  // if clicked on info button once again .card display is equal to "inline-block" now and not "none" so it will change .card style to none making it dissappear only if you already clicked the info button..
   else 
   {
    x.style.display = "none";
   }
 };
 
-// function toggleStop() {
-//   x = document.getElementById('track2');
-//   // x.classList.toggle("fa-pause");
-//   // x.classList.toggle("fa-pause");
-//   // x.classList.toggle("fa-volume-mute");
-//   // x.classList.toggle("fa-play");
-//   // x.classList.toggle("fa-play");
-
-//   // if(x.classList == "fa-play")
-//   // {
-//   //   x.classList.remove("playing")
-//   // }
-//   // x.classList.toggle("fa-play");
-//   // x.classList.toggle("fa-pause");
 
 
-// }
-
+// Each track has its own function, when .add-track class is beeing clicked add the specefied instrument.
 function loadWaveFormTrack1(){
-
 var audioTrack = WaveSurfer.create({
   container: ".audio",
   waveColor: "white",
-  progressColor: "red",
+  progressColor: "red", // Each track has its own pregressColor,meaning when played waveform color is changed.
   barWidth: 2,
   barHeight: 0.7,
   hideScrollbar:true,
   loopSelection: true,
 });
 
-audioTrack.load("audio/drums.mp3");
+
+audioTrack.load("audio/drums.mp3"); // Load track from audio directory.
 audioTrack.setVolume(1);
 
-
-audioTrack.on('ready', function(){
+audioTrack.on('ready', function(){ // When loaded add regions plugin (loop selection).
   audioTrack.addRegion({
     id: 1,
-    start: 0, 
-    end: 2.98, 
-    color: 'hsla(254, 84%, 53%, 0.1)',         
-    drag: true,
-    resize: true,
-    loop:true
-  });});
+    start: 0, // Where loop starts
+    end: 2.98,// Where loop ends
+    color: 'hsla(254, 84%, 53%, 0.1)',   
+    drag: true, // Can drag
+    resize: true, // Can resize
+    loop:true // Will loop
+  })
+});
 
   const playBtn = document.querySelector(".play-btn");
   const trashBtn = document.querySelector(".trash-btn");
   const trackBtn = document.getElementById("track1");
   const muteTrackBtn = document.getElementById("pause1");
-  const stopTrackBtn = document.getElementById("stop1");
   const volumeSlider = document.querySelector(".volume-slider");
   const muteBtn = document.querySelector(".mute-btn1");
+  const addTrack = document.querySelector(".add-track1");
   const stopLoopBtn = document.getElementById("loop-stop");
   const stopSyncBtn = document.getElementById("loop-sync");
   const addSyncBtn = document.getElementById("plus-plus");
+  const stopSyncTrackBtn = document.getElementById("loop-sync1");
+  const addSyncTrackBtn = document.getElementById("plus-plus1");
 
+
+  // Prevents spamming add instrument button
+  addTrack.addEventListener("click", ()=>{
+    audioTrack.destroy();
+  });
+
+
+  // When plus-plus button is clicked add loop regions again of this track.
   addSyncBtn.addEventListener("click", () => {
     audioTrack.clearRegions(); 
     audioTrack.addRegion({
         id: 1,
         start: 0, 
         end: 2.98, 
-        color: 'hsla(254, 84%, 53%, 0.1)',         
+        color: 'hsla(254, 84%, 53%, 0.1)',          
         drag: true,
         resize: true,
         loop:true
-      });
-  })
+      });});
 
+
+    // When loop-sync button is clicked remove loop origins of this track.
   stopSyncBtn.addEventListener("click", () => {
-  audioTrack.clearRegions(); 
-  });
+    audioTrack.clearRegions(); 
+    });
+
+      addSyncTrackBtn.addEventListener("click", () => {
+    audioTrack.clearRegions(); 
+    audioTrack.addRegion({
+        id: 1,
+        start: 0, 
+        end: 2.98, 
+        color: 'hsla(254, 84%, 53%, 0.1)',          
+        drag: true,
+        resize: true,
+        loop:true
+      });});
+
+
+  stopSyncTrackBtn.addEventListener("click", () => {
+    audioTrack.clearRegions(); 
+    });
+
+    
+    // When red play button is clicked play or pause this track.
+    trackBtn.addEventListener("click", () => {
+      audioTrack.playPause();
+      if (audioTrack.isPlaying()) {
+        playBtn.classList.add("playing");
+      } else{  
+          playBtn.classList.remove("playing");
+       } 
+    });
+
   
-  
-  trackBtn.addEventListener("click", () => {
-    audioTrack.playPause();
-    if (audioTrack.isPlaying()) {
-      playBtn.classList.add("playing");
-    } else{  
-        playBtn.classList.remove("playing");
-     } 
-  });
-
-  trashBtn.addEventListener("click",()=>{
-    audioTrack.destroy();
-    audioTrack.cancelAjax()();
-  });
-
-   
-  playBtn.addEventListener("click", () => {
-    audioTrack.playPause();
-    togglePlayLoop(trackBtn);
-    if (audioTrack.isPlaying()) {
-      playBtn.classList.add("playing");
-    } else{
-      playBtn.classList.remove("playing");
-    }
-  });
+    // Removes this track from audio container.
+    trashBtn.addEventListener("click",()=>{
+      audioTrack.destroy();
+      audioTrack.cancelAjax();
+    });
 
 
-  muteTrackBtn.addEventListener("click",()=>{
-    if(audioTrack.isPlaying())
-    {
-    audioTrack.setVolume(0);
-    }else if(audioTrack.getMute() == true){
-      audioTrack.setVolume(1);
-    }
-  });
-
-
-  stopTrackBtn.addEventListener("click", () => {   
-    audioTrack.stop();
-    togglePlayLoop(trackBtn);
-    playBtn.classList.remove("playing");
-
-      if(playBtn.classList == "playing")
-      {
+  // When white play button is clicked play or pause this track.
+    playBtn.addEventListener("click", () => {
+      audioTrack.playPause();
+      togglePlay(trackBtn);
+      if (audioTrack.isPlaying()) {
+        playBtn.classList.add("playing");
+      } else{
         playBtn.classList.remove("playing");
       }
-      else
+    });
+
+
+  // When red mute button is clicked mute this track.
+    muteTrackBtn.addEventListener("click",()=>{
+      if(audioTrack.isPlaying())
       {
-        playBtn.classList.add("pause");
-      }
-  });
-
-
-  stopLoopBtn.addEventListener("click", () => {
-    audioTrack.stop();
-    togglePlayLoop(trackBtn);
-    playBtn.classList.remove("playing");
-  });
-
-  
-  volumeSlider.addEventListener("mouseup", () => {
-    changeVolume(volumeSlider.value);
-  });
-
-  
-  const changeVolume = (volume) => {
-    if (volume == 0) {
-      muteBtn.classList.add("muted");
-    }
-     else {
-      muteBtn.classList.remove("muted");
-    }
-  
-    audioTrack.setVolume(volume);
-  };
-  
-
-  muteBtn.addEventListener("click", () => {
-    if (muteBtn.classList.contains("muted")) {
-      muteBtn.classList.remove("muted");
-      audioTrack.setVolume(1);
-      volumeSlider.value = 1;
-    } else {
       audioTrack.setVolume(0);
-      muteBtn.classList.add("muted");
-      volumeSlider.value = 0;
-    }
-  });
-}
+      }else if(audioTrack.getMute() == true){
+        audioTrack.setVolume(1);
+      }
+    });
+  
+
+  
+  // When white stop button is clicked stop this track.  
+    stopLoopBtn.addEventListener("click", () => {
+      audioTrack.stop();
+      playBtn.classList.remove("playing");
+      toggleStop(trackBtn);
+    });
+
+    
+    volumeSlider.addEventListener("mouseup", () => {
+      changeVolume(volumeSlider.value);
+    });
+
+    
+    const changeVolume = (volume) => {
+      if (volume == 0) {
+        muteBtn.classList.add("muted");
+      }
+       else 
+      {
+        muteBtn.classList.remove("muted");
+      }
+      audioTrack.setVolume(volume);
+    };
+    
+
+    muteBtn.addEventListener("click", () => {
+      if (muteBtn.classList.contains("muted")) {
+        muteBtn.classList.remove("muted");
+        audioTrack.setVolume(1);
+      } else {
+        audioTrack.setVolume(0);
+        muteBtn.classList.add("muted");
+      }
+    });
+  }
+
   function loadWaveFormTrack2(){
 
   var audioTrack = WaveSurfer.create({
@@ -297,123 +293,126 @@ audioTrack.on('ready', function(){
     const trashBtn = document.querySelector(".trash-btn");
     const trackBtn = document.getElementById("track2");
     const muteTrackBtn = document.getElementById("pause2");
-    const stopTrackBtn = document.getElementById("stop2");
     const volumeSlider = document.querySelector(".volume-slider");
     const muteBtn = document.querySelector(".mute-btn2");
+    const addTrack = document.querySelector(".add-track2");
     const stopLoopBtn = document.getElementById("loop-stop");
     const stopSyncBtn = document.getElementById("loop-sync");
     const addSyncBtn = document.getElementById("plus-plus");
+    const stopSyncTrackBtn = document.getElementById("loop-sync2");
+    const addSyncTrackBtn = document.getElementById("plus-plus2");
+  
+  
+    addTrack.addEventListener("click", ()=>{
+      audioTrack.destroy();
+    });
+  
   
     addSyncBtn.addEventListener("click", () => {
       audioTrack.clearRegions(); 
       audioTrack.addRegion({
-          id: 2,
-          start: 0, 
-          end: 3, 
-          color: 'hsla(74, 86%, 54%, 0.1)',         
-          drag: true,
-          resize: true,
-          loop:true
-        });
-    })
+        id: 2,
+        start: 0, 
+        end: 3, 
+        color: 'hsla(74, 86%, 54%, 0.1)',         
+        drag: true,
+        resize: true,
+        loop:true
+      });});
+  
   
     stopSyncBtn.addEventListener("click", () => {
-    audioTrack.clearRegions(); 
-    });
-    
-
-
-    stopSyncBtn.addEventListener("click", () => {
-    audioTrack.clearRegions(); 
-    });
-    
-    trackBtn.addEventListener("click", () => {
-      audioTrack.playPause();
-      if (audioTrack.isPlaying()) {
-        playBtn.classList.add("playing");
-      } else{  
-          playBtn.classList.remove("playing");
-       } 
-    });
-  
-    trashBtn.addEventListener("click",()=>{
-      audioTrack.destroy();
-      audioTrack.cancelAjax();
-    });
-
-     
-    playBtn.addEventListener("click", () => {
-      audioTrack.playPause();
-      togglePlayLoop(trackBtn);
-      if (audioTrack.isPlaying()) {
-        playBtn.classList.add("playing");
-      } else{
-        playBtn.classList.remove("playing");
-      }
-    });
+      audioTrack.clearRegions(); 
+      });
 
   
-    muteTrackBtn.addEventListener("click",()=>{
-      if(audioTrack.isPlaying())
-      {
-      audioTrack.setVolume(0);
-      }else if(audioTrack.getMute() == true){
-        audioTrack.setVolume(0.3);
-      }
-    });
+        addSyncTrackBtn.addEventListener("click", () => {
+      audioTrack.clearRegions(); 
+      audioTrack.addRegion({
+        id: 2,
+        start: 0, 
+        end: 3, 
+        color: 'hsla(74, 86%, 54%, 0.1)',         
+        drag: true,
+        resize: true,
+        loop:true
+      });});
   
- 
-    stopTrackBtn.addEventListener("click", () => {   
-      audioTrack.stop();
-      togglePlayLoop(trackBtn);
-      playBtn.classList.remove("playing");
+  
+    stopSyncTrackBtn.addEventListener("click", () => {
+      audioTrack.clearRegions(); 
+      });
+  
+      
+      trackBtn.addEventListener("click", () => {
+        audioTrack.playPause();
+        if (audioTrack.isPlaying()) {
+          playBtn.classList.add("playing");
+        } else{  
+            playBtn.classList.remove("playing");
+         } 
+      });
+  
 
-        if(playBtn.classList == "playing")
-        {
+      trashBtn.addEventListener("click",()=>{
+        audioTrack.destroy();
+        audioTrack.cancelAjax();
+      });
+  
+
+      playBtn.addEventListener("click", () => {
+        audioTrack.playPause();
+        togglePlay(trackBtn);
+        if (audioTrack.isPlaying()) {
+          playBtn.classList.add("playing");
+        } else{
           playBtn.classList.remove("playing");
         }
-        else
-        {
-          playBtn.classList.add("pause");
-        }
-    });
-
+      });
   
-    stopLoopBtn.addEventListener("click", () => {
-      audioTrack.stop();
-      togglePlayLoop(trackBtn);
-      playBtn.classList.remove("playing");
-    });
-
-    
-    volumeSlider.addEventListener("mouseup", () => {
-      changeVolume(volumeSlider.value);
-    });
-
-    
-    const changeVolume = (volume) => {
-      if (volume == 0) {
-        muteBtn.classList.add("muted");
-      }
-       else {
-        muteBtn.classList.remove("muted");
-      }
-    
-      audioTrack.setVolume(volume);
-    };
-    
-
-    muteBtn.addEventListener("click", () => {
-      if (muteBtn.classList.contains("muted")) {
-        muteBtn.classList.remove("muted");
-        audioTrack.setVolume(0.3);
-        volumeSlider.value = 0.3;
-      } else {
+  
+      muteTrackBtn.addEventListener("click",()=>{
+        if(audioTrack.isPlaying())
+        {
         audioTrack.setVolume(0);
-        muteBtn.classList.add("muted");
-        volumeSlider.value = 0;
-      }
-    });
+        }else if(audioTrack.getMute() == true){
+          audioTrack.setVolume(1);
+        }
+      });
+
+      stopLoopBtn.addEventListener("click", () => {
+        audioTrack.stop();
+        playBtn.classList.remove("playing");
+        toggleStop(trackBtn);
+      });
+  
+      
+      volumeSlider.addEventListener("mouseup", () => {
+        changeVolume(volumeSlider.value);
+      });
+  
+      
+      const changeVolume = (volume) => {
+        if (volume == 0) {
+          muteBtn.classList.add("muted");
+        }
+         else {
+          muteBtn.classList.remove("muted");
+        }
+      
+        audioTrack.setVolume(volume);
+      };
+      
+  
+      muteBtn.addEventListener("click", () => {
+        if (muteBtn.classList.contains("muted")) {
+          muteBtn.classList.remove("muted");
+          audioTrack.setVolume(1);
+        } else {
+          audioTrack.setVolume(0);
+          muteBtn.classList.add("muted");
+        }
+      });
  }
     function loadWaveFormTrack3(){
 
@@ -445,123 +444,125 @@ audioTrack.on('ready', function(){
     const trashBtn = document.querySelector(".trash-btn");
     const trackBtn = document.getElementById("track3");
     const muteTrackBtn = document.getElementById("pause3");
-    const stopTrackBtn = document.getElementById("stop3");
     const volumeSlider = document.querySelector(".volume-slider");
     const muteBtn = document.querySelector(".mute-btn3");
+    const addTrack = document.querySelector(".add-track3");
     const stopLoopBtn = document.getElementById("loop-stop");
     const stopSyncBtn = document.getElementById("loop-sync");
     const addSyncBtn = document.getElementById("plus-plus");
+    const stopSyncTrackBtn = document.getElementById("loop-sync3");
+    const addSyncTrackBtn = document.getElementById("plus-plus3");
+  
+  
+    addTrack.addEventListener("click", ()=>{
+      audioTrack.destroy();
+    });
+  
   
     addSyncBtn.addEventListener("click", () => {
       audioTrack.clearRegions(); 
       audioTrack.addRegion({
-          id: 3,
-          start: 9, 
-          end: 12, 
-          color: 'hsla(0, 100%, 30%, 0.1)',         
-          drag: true,
-          resize: true,
-          loop:true
-        });
-    })
+        id: 3,
+        start: 9, 
+        end: 12, 
+        color: 'hsla(0, 100%, 30%, 0.1)',         
+        drag: true,
+        resize: true,
+        loop:true
+      });});
+  
   
     stopSyncBtn.addEventListener("click", () => {
-    audioTrack.clearRegions(); 
-    });
-
-
-    stopSyncBtn.addEventListener("click", () => {
-    audioTrack.clearRegions(); 
-    });
+      audioTrack.clearRegions(); 
+      });
+  
+        addSyncTrackBtn.addEventListener("click", () => {
+      audioTrack.clearRegions(); 
+      audioTrack.addRegion({
+        id: 3,
+        start: 9, 
+        end: 12, 
+        color: 'hsla(0, 100%, 30%, 0.1)',         
+        drag: true,
+        resize: true,
+        loop:true
+      });});
+  
+  
+    stopSyncTrackBtn.addEventListener("click", () => {
+      audioTrack.clearRegions(); 
+      });
+  
+      
+      trackBtn.addEventListener("click", () => {
+        audioTrack.playPause();
+        if (audioTrack.isPlaying()) {
+          playBtn.classList.add("playing");
+        } else{  
+            playBtn.classList.remove("playing");
+         } 
+      });
+  
     
-    
-    trackBtn.addEventListener("click", () => {
-      audioTrack.playPause();
-      if (audioTrack.isPlaying()) {
-        playBtn.classList.add("playing");
-      } else{  
-          playBtn.classList.remove("playing");
-       } 
-    });
+      trashBtn.addEventListener("click",()=>{
+        audioTrack.destroy();
+        audioTrack.cancelAjax();
+      });
   
-    trashBtn.addEventListener("click",()=>{
-      audioTrack.destroy();
-      audioTrack.cancelAjax();
-    });
 
-     
-    playBtn.addEventListener("click", () => {
-      audioTrack.playPause();
-      togglePlayLoop(trackBtn);
-      if (audioTrack.isPlaying()) {
-        playBtn.classList.add("playing");
-      } else{
-        playBtn.classList.remove("playing");
-      }
-    });
-
-  
-    muteTrackBtn.addEventListener("click",()=>{
-      if(audioTrack.isPlaying())
-      {
-      audioTrack.setVolume(0);
-      }else if(audioTrack.getMute() == true){
-        audioTrack.setVolume(1.4);
-      }
-    });
-  
- 
-    stopTrackBtn.addEventListener("click", () => {   
-      audioTrack.stop();
-      togglePlayLoop(trackBtn);
-      playBtn.classList.remove("playing");
-
-        if(playBtn.classList == "playing")
-        {
+      playBtn.addEventListener("click", () => {
+        audioTrack.playPause();
+        togglePlay(trackBtn);
+        if (audioTrack.isPlaying()) {
+          playBtn.classList.add("playing");
+        } else{
           playBtn.classList.remove("playing");
         }
-        else
-        {
-          playBtn.classList.add("pause");
-        }
-    });
-
+      });
   
-    stopLoopBtn.addEventListener("click", () => {
-      audioTrack.stop();
-      togglePlayLoop(trackBtn);
-      playBtn.classList.remove("playing");
-    });
-
-    
-    volumeSlider.addEventListener("mouseup", () => {
-      changeVolume(volumeSlider.value);
-    });
-
-    
-    const changeVolume = (volume) => {
-      if (volume == 0) {
-        muteBtn.classList.add("muted");
-      }
-       else {
-        muteBtn.classList.remove("muted");
-      }
-    
-      audioTrack.setVolume(volume);
-    };
-    
-
-    muteBtn.addEventListener("click", () => {
-      if (muteBtn.classList.contains("muted")) {
-        muteBtn.classList.remove("muted");
-        audioTrack.setVolume(1.4);
-        volumeSlider.value = 1.4;
-      } else {
+  
+      muteTrackBtn.addEventListener("click",()=>{
+        if(audioTrack.isPlaying())
+        {
         audioTrack.setVolume(0);
-        muteBtn.classList.add("muted");
-        volumeSlider.value = 0;
-      }
-    });
+        }else if(audioTrack.getMute() == true){
+          audioTrack.setVolume(1);
+        }
+      });
+    
+      stopLoopBtn.addEventListener("click", () => {
+        audioTrack.stop();
+        playBtn.classList.remove("playing");
+        toggleStop(trackBtn);
+      });
+  
+      
+      volumeSlider.addEventListener("mouseup", () => {
+        changeVolume(volumeSlider.value);
+      });
+  
+      
+      const changeVolume = (volume) => {
+        if (volume == 0) {
+          muteBtn.classList.add("muted");
+        }
+         else {
+          muteBtn.classList.remove("muted");
+        }
+      
+        audioTrack.setVolume(volume);
+      };
+      
+  
+      muteBtn.addEventListener("click", () => {
+        if (muteBtn.classList.contains("muted")) {
+          muteBtn.classList.remove("muted");
+          audioTrack.setVolume(1);
+        } else {
+          audioTrack.setVolume(0);
+          muteBtn.classList.add("muted");
+        }
+      });
    }
       function loadWaveFormTrack4(){
 
@@ -592,123 +593,127 @@ audioTrack.on('ready', function(){
         const trashBtn = document.querySelector(".trash-btn");
         const trackBtn = document.getElementById("track4");
         const muteTrackBtn = document.getElementById("pause4");
-        const stopTrackBtn = document.getElementById("stop4");
         const volumeSlider = document.querySelector(".volume-slider");
         const muteBtn = document.querySelector(".mute-btn4");
+        const addTrack = document.querySelector(".add-track4");
         const stopLoopBtn = document.getElementById("loop-stop");
         const stopSyncBtn = document.getElementById("loop-sync");
         const addSyncBtn = document.getElementById("plus-plus");
+        const stopSyncTrackBtn = document.getElementById("loop-sync4");
+        const addSyncTrackBtn = document.getElementById("plus-plus4");
+      
+      
+        addTrack.addEventListener("click", ()=>{
+          audioTrack.destroy();
+        });
+      
       
         addSyncBtn.addEventListener("click", () => {
           audioTrack.clearRegions(); 
           audioTrack.addRegion({
-              id: 4,
-              start: 6, 
-              end: 12, 
-              color: 'hsla(187, 100%, 30%, 0.1)',         
-              drag: true,
-              resize: true,
-              loop:true
-            });
-        })
+            id: 4,
+            start: 6, 
+            end: 12, 
+            color: 'hsla(187, 100%, 30%, 0.1)',         
+            drag: true,
+            resize: true,
+            loop:true
+          });});
+      
       
         stopSyncBtn.addEventListener("click", () => {
-        audioTrack.clearRegions(); 
-        });
-
-    
-        stopSyncBtn.addEventListener("click", () => {
-        audioTrack.clearRegions(); 
-        });
-
+          audioTrack.clearRegions(); 
+          });
+      
+            addSyncTrackBtn.addEventListener("click", () => {
+          audioTrack.clearRegions(); 
+          audioTrack.addRegion({
+            id: 4,
+            start: 6, 
+            end: 12, 
+            color: 'hsla(187, 100%, 30%, 0.1)',         
+            drag: true,
+            resize: true,
+            loop:true
+          });});
+      
+      
+        stopSyncTrackBtn.addEventListener("click", () => {
+          audioTrack.clearRegions(); 
+          });
+      
+          
+          trackBtn.addEventListener("click", () => {
+            audioTrack.playPause();
+            if (audioTrack.isPlaying()) {
+              playBtn.classList.add("playing");
+            } else{  
+                playBtn.classList.remove("playing");
+             } 
+          });
+      
         
-        trackBtn.addEventListener("click", () => {
-          audioTrack.playPause();
-          if (audioTrack.isPlaying()) {
-            playBtn.classList.add("playing");
-          } else{  
-              playBtn.classList.remove("playing");
-           } 
-        });
+          trashBtn.addEventListener("click",()=>{
+            audioTrack.destroy();
+            audioTrack.cancelAjax();
+          });
       
-        trashBtn.addEventListener("click",()=>{
-          audioTrack.destroy();
-          audioTrack.cancelAjax();
-        });
-    
-         
-        playBtn.addEventListener("click", () => {
-          audioTrack.playPause();
-          togglePlayLoop(trackBtn);
-          if (audioTrack.isPlaying()) {
-            playBtn.classList.add("playing");
-          } else{
-            playBtn.classList.remove("playing");
-          }
-        });
-    
-      
-        muteTrackBtn.addEventListener("click",()=>{
-          if(audioTrack.isPlaying())
-          {
-          audioTrack.setVolume(0);
-          }else if(audioTrack.getMute() == true){
-            audioTrack.setVolume(0.6);
-          }
-        });
-      
-     
-        stopTrackBtn.addEventListener("click", () => {   
-          audioTrack.stop();
-          togglePlayLoop(trackBtn);
-          playBtn.classList.remove("playing");
-    
-            if(playBtn.classList == "playing")
-            {
+
+          playBtn.addEventListener("click", () => {
+            audioTrack.playPause();
+            togglePlay(trackBtn);
+            if (audioTrack.isPlaying()) {
+              playBtn.classList.add("playing");
+            } else{
               playBtn.classList.remove("playing");
             }
-            else
-            {
-              playBtn.classList.add("pause");
-            }
-        });
-    
+          });
       
-        stopLoopBtn.addEventListener("click", () => {
-          audioTrack.stop();
-          togglePlayLoop(trackBtn);
-          playBtn.classList.remove("playing");
-        });
-    
-        
-        volumeSlider.addEventListener("mouseup", () => {
-          changeVolume(volumeSlider.value);
-        });
-    
-        
-        const changeVolume = (volume) => {
-          if (volume == 0) {
-            muteBtn.classList.add("muted");
-          }
-           else {
-            muteBtn.classList.remove("muted");
-          }
-        
-          audioTrack.setVolume(volume);
-        };
-        
-    
-        muteBtn.addEventListener("click", () => {
-          if (muteBtn.classList.contains("muted")) {
-            muteBtn.classList.remove("muted");
-            audioTrack.setVolume(0.6);
-            volumeSlider.value = 0.6;
-          } else {
+      
+          muteTrackBtn.addEventListener("click",()=>{
+            if(audioTrack.isPlaying())
+            {
             audioTrack.setVolume(0);
-            muteBtn.classList.add("muted");
-            volumeSlider.value = 0;
-          }
-        });
+            }else if(audioTrack.getMute() == true){
+              audioTrack.setVolume(1);
+            }
+          });
+        
+             
+        
+          stopLoopBtn.addEventListener("click", () => {
+            audioTrack.stop();
+            playBtn.classList.remove("playing");
+            toggleStop(trackBtn);
+          });
+      
+          
+          volumeSlider.addEventListener("mouseup", () => {
+            changeVolume(volumeSlider.value);
+          });
+      
+          
+          const changeVolume = (volume) => {
+            if (volume == 0) {
+              muteBtn.classList.add("muted");
+            }
+             else {
+              muteBtn.classList.remove("muted");
+            }
+          
+            audioTrack.setVolume(volume);
+          };
+          
+      
+          muteBtn.addEventListener("click", () => {
+            if (muteBtn.classList.contains("muted")) {
+              muteBtn.classList.remove("muted");
+              audioTrack.setVolume(1);
+            } else {
+              audioTrack.setVolume(0);
+              muteBtn.classList.add("muted");
+            }
+          });
      }
        function loadWaveFormTrack5(){
 
@@ -739,122 +744,127 @@ audioTrack.on('ready', function(){
           const trashBtn = document.querySelector(".trash-btn");
           const trackBtn = document.getElementById("track5");
           const muteTrackBtn = document.getElementById("pause5");
-          const stopTrackBtn = document.getElementById("stop5");
           const volumeSlider = document.querySelector(".volume-slider");
           const muteBtn = document.querySelector(".mute-btn5");
+          const addTrack = document.querySelector(".add-track5");
           const stopLoopBtn = document.getElementById("loop-stop");
           const stopSyncBtn = document.getElementById("loop-sync");
-          const addSyncBtn = document.getElementById("plus-plus");
+          const addSyncBtn = document.getElementById("plus-plus");    
+          const stopSyncTrackBtn = document.getElementById("loop-sync5");
+          const addSyncTrackBtn = document.getElementById("plus-plus5");
+        
+        
+          addTrack.addEventListener("click", ()=>{
+            audioTrack.destroy();
+          });
+        
         
           addSyncBtn.addEventListener("click", () => {
             audioTrack.clearRegions(); 
             audioTrack.addRegion({
-                id: 5,
-                start: 0.2, 
-                end: 1.4, 
-                color: 'hsla(39, 100%, 30%, 0.1)',         
-                drag: true,
-                resize: true,
-                loop:true
-              });
-          })
+              id: 5,
+              start: 0.2, 
+              end: 1.4, 
+              color: 'hsla(39, 100%, 30%, 0.1)',         
+              drag: true,
+              resize: true,
+              loop:true
+            });});
         
-          stopSyncBtn.addEventListener("click", () => {
-          audioTrack.clearRegions(); 
-          });
 
-    
-        stopSyncBtn.addEventListener("click", () => {
-        audioTrack.clearRegions(); 
-        });
+          stopSyncBtn.addEventListener("click", () => {
+            audioTrack.clearRegions(); 
+            });
+        
+              addSyncTrackBtn.addEventListener("click", () => {
+            audioTrack.clearRegions(); 
+            audioTrack.addRegion({
+              id: 5,
+              start: 0.2, 
+              end: 1.4, 
+              color: 'hsla(39, 100%, 30%, 0.1)',         
+              drag: true,
+              resize: true,
+              loop:true
+            });});
+        
+        
+          stopSyncTrackBtn.addEventListener("click", () => {
+            audioTrack.clearRegions(); 
+            });
+        
+            
+            trackBtn.addEventListener("click", () => {
+              audioTrack.playPause();
+              if (audioTrack.isPlaying()) {
+                playBtn.classList.add("playing");
+              } else{  
+                  playBtn.classList.remove("playing");
+               } 
+            });
+        
           
-          trackBtn.addEventListener("click", () => {
-            audioTrack.playPause();
-            if (audioTrack.isPlaying()) {
-              playBtn.classList.add("playing");
-            } else{  
-                playBtn.classList.remove("playing");
-             } 
-          });
+            trashBtn.addEventListener("click",()=>{
+              audioTrack.destroy();
+              audioTrack.cancelAjax();
+            });
         
-          trashBtn.addEventListener("click",()=>{
-            audioTrack.destroy();
-            audioTrack.cancelAjax();
-          });
-      
-           
-          playBtn.addEventListener("click", () => {
-            audioTrack.playPause();
-            togglePlayLoop(trackBtn);
-            if (audioTrack.isPlaying()) {
-              playBtn.classList.add("playing");
-            } else{
-              playBtn.classList.remove("playing");
-            }
-          });
-      
         
-          muteTrackBtn.addEventListener("click",()=>{
-            if(audioTrack.isPlaying())
-            {
-            audioTrack.setVolume(0);
-            }else if(audioTrack.getMute() == true){
-              audioTrack.setVolume(0.4);
-            }
-          });
-        
-       
-          stopTrackBtn.addEventListener("click", () => {   
-            audioTrack.stop();
-            togglePlayLoop(trackBtn);
-            playBtn.classList.remove("playing");
-      
-              if(playBtn.classList == "playing")
-              {
+            playBtn.addEventListener("click", () => {
+              audioTrack.playPause();
+              togglePlay(trackBtn);
+              if (audioTrack.isPlaying()) {
+                playBtn.classList.add("playing");
+              } else{
                 playBtn.classList.remove("playing");
               }
-              else
-              {
-                playBtn.classList.add("pause");
-              }
-          });
-      
+            });
         
-          stopLoopBtn.addEventListener("click", () => {
-            audioTrack.stop();
-            togglePlayLoop(trackBtn);
-            playBtn.classList.remove("playing");
-          });
-      
-          
-          volumeSlider.addEventListener("mouseup", () => {
-            changeVolume(volumeSlider.value);
-          });
-      
-          
-          const changeVolume = (volume) => {
-            if (volume == 0) {
-              muteBtn.classList.add("muted");
-            }
-             else {
-              muteBtn.classList.remove("muted");
-            }
-          
-            audioTrack.setVolume(volume);
-          };
-          
-      
-          muteBtn.addEventListener("click", () => {
-            if (muteBtn.classList.contains("muted")) {
-              muteBtn.classList.remove("muted");
-              audioTrack.setVolume(0.4);
-              volumeSlider.value = 0.4;
-            } else {
+
+            muteTrackBtn.addEventListener("click",()=>{
+              if(audioTrack.isPlaying())
+              {
               audioTrack.setVolume(0);
-              muteBtn.classList.add("muted");
-              volumeSlider.value = 0;
-            }
-          });
+              }else if(audioTrack.getMute() == true){
+                audioTrack.setVolume(1);
+              }
+            });
+          
+                           
+ 
+            stopLoopBtn.addEventListener("click", () => {
+              audioTrack.stop();
+              playBtn.classList.remove("playing");
+              toggleStop(trackBtn);
+            });
+        
+            
+            volumeSlider.addEventListener("mouseup", () => {
+              changeVolume(volumeSlider.value);
+            });
+        
+            
+            const changeVolume = (volume) => {
+              if (volume == 0) {
+                muteBtn.classList.add("muted");
+              }
+               else {
+                muteBtn.classList.remove("muted");
+              }
+            
+              audioTrack.setVolume(volume);
+            };
+            
+        
+            muteBtn.addEventListener("click", () => {
+              if (muteBtn.classList.contains("muted")) {
+                muteBtn.classList.remove("muted");
+                audioTrack.setVolume(1);
+              } else {
+                audioTrack.setVolume(0);
+                muteBtn.classList.add("muted");
+              }
+            });
        }       
          function loadWaveFormTrack6(){
 
@@ -885,122 +895,129 @@ audioTrack.on('ready', function(){
             const trashBtn = document.querySelector(".trash-btn");
             const trackBtn = document.getElementById("track6");
             const muteTrackBtn = document.getElementById("pause6");
-            const stopTrackBtn = document.getElementById("stop6");
             const volumeSlider = document.querySelector(".volume-slider");
             const muteBtn = document.querySelector(".mute-btn6");
+            const addTrack = document.querySelector(".add-track6");
             const stopLoopBtn = document.getElementById("loop-stop");
             const stopSyncBtn = document.getElementById("loop-sync");
             const addSyncBtn = document.getElementById("plus-plus");
           
+            const stopSyncTrackBtn = document.getElementById("loop-sync6");
+            const addSyncTrackBtn = document.getElementById("plus-plus6");
+          
+          
+            addTrack.addEventListener("click", ()=>{
+              audioTrack.destroy();
+            });
+          
+          
             addSyncBtn.addEventListener("click", () => {
               audioTrack.clearRegions(); 
               audioTrack.addRegion({
-                  id: 6,
-                  start: 6, 
-                  end: 9, 
-                  color: 'hsla(305, 100%, 30%, 0.1)',         
-                  drag: true,
-                  resize: true,
-                  loop:true
-                });
-            })
+                id: 6,
+                start: 8.8, 
+                end: 10.5, 
+                color: 'hsla(305, 100%, 30%, 0.1)',         
+                drag: true,
+                resize: true,
+                loop:true
+              });});
+          
           
             stopSyncBtn.addEventListener("click", () => {
-            audioTrack.clearRegions(); 
-            });
+              audioTrack.clearRegions(); 
+              });
+          
+                addSyncTrackBtn.addEventListener("click", () => {
+              audioTrack.clearRegions(); 
+              audioTrack.addRegion({
+                id: 6,
+                start: 8.8, 
+                end: 10.5, 
+                color: 'hsla(305, 100%, 30%, 0.1)',         
+                drag: true,
+                resize: true,
+                loop:true
+              });});
+          
+          
+            stopSyncTrackBtn.addEventListener("click", () => {
+              audioTrack.clearRegions(); 
+              });
+          
+              
 
-    
-            stopSyncBtn.addEventListener("click", () => {
-            audioTrack.clearRegions(); 
-            });        
+              trackBtn.addEventListener("click", () => {
+                audioTrack.playPause();
+                if (audioTrack.isPlaying()) {
+                  playBtn.classList.add("playing");
+                } else{  
+                    playBtn.classList.remove("playing");
+                 } 
+              });
+          
             
-            trackBtn.addEventListener("click", () => {
-              audioTrack.playPause();
-              if (audioTrack.isPlaying()) {
-                playBtn.classList.add("playing");
-              } else{  
-                  playBtn.classList.remove("playing");
-               } 
-            });
+              trashBtn.addEventListener("click",()=>{
+                audioTrack.destroy();
+                audioTrack.cancelAjax();
+              });
           
-            trashBtn.addEventListener("click",()=>{
-              audioTrack.destroy();
-              audioTrack.cancelAjax();
-            });
-        
-             
-            playBtn.addEventListener("click", () => {
-              audioTrack.playPause();
-              togglePlayLoop(trackBtn);
-              if (audioTrack.isPlaying()) {
-                playBtn.classList.add("playing");
-              } else{
-                playBtn.classList.remove("playing");
-              }
-            });
-        
           
-            muteTrackBtn.addEventListener("click",()=>{
-              if(audioTrack.isPlaying())
-              {
-              audioTrack.setVolume(0);
-              }else if(audioTrack.getMute() == true){
-                audioTrack.setVolume(0.3);
-              }
-            });
-          
-         
-            stopTrackBtn.addEventListener("click", () => {   
-              audioTrack.stop();
-              togglePlayLoop(trackBtn);
-              playBtn.classList.remove("playing");
-        
-                if(playBtn.classList == "playing")
-                {
+              playBtn.addEventListener("click", () => {
+                audioTrack.playPause();
+                togglePlay(trackBtn);
+                if (audioTrack.isPlaying()) {
+                  playBtn.classList.add("playing");
+                } else{
                   playBtn.classList.remove("playing");
                 }
-                else
-                {
-                  playBtn.classList.add("pause");
-                }
-            });
-        
+              });
           
-            stopLoopBtn.addEventListener("click", () => {
-              audioTrack.stop();
-              togglePlayLoop(trackBtn);
-              playBtn.classList.remove("playing");
-            });
-        
-            
-            volumeSlider.addEventListener("mouseup", () => {
-              changeVolume(volumeSlider.value);
-            });
-        
-            
-            const changeVolume = (volume) => {
-              if (volume == 0) {
-                muteBtn.classList.add("muted");
-              }
-               else {
-                muteBtn.classList.remove("muted");
-              }
-            
-              audioTrack.setVolume(volume);
-            };
-            
-        
-            muteBtn.addEventListener("click", () => {
-              if (muteBtn.classList.contains("muted")) {
-                muteBtn.classList.remove("muted");
-                audioTrack.setVolume(0.3);
-                volumeSlider.value = 0.3;
-              } else {
+          
+  
+              muteTrackBtn.addEventListener("click",()=>{
+                if(audioTrack.isPlaying())
+                {
                 audioTrack.setVolume(0);
-                muteBtn.classList.add("muted");
-                volumeSlider.value = 0;
-              }
-            });
+                }else if(audioTrack.getMute() == true){
+                  audioTrack.setVolume(1);
+                }
+              });
+
+            
+              stopLoopBtn.addEventListener("click", () => {
+                audioTrack.stop();
+                playBtn.classList.remove("playing");
+                toggleStop(trackBtn);
+              });
+          
+              
+              volumeSlider.addEventListener("mouseup", () => {
+                changeVolume(volumeSlider.value);
+              });
+          
+              
+              const changeVolume = (volume) => {
+                if (volume == 0) {
+                  muteBtn.classList.add("muted");
+                }
+                 else {
+                  muteBtn.classList.remove("muted");
+                }
+              
+                audioTrack.setVolume(volume);
+              };
+              
+          
+              muteBtn.addEventListener("click", () => {
+                if (muteBtn.classList.contains("muted")) {
+                  muteBtn.classList.remove("muted");
+                  audioTrack.setVolume(1);
+                } else {
+                  audioTrack.setVolume(0);
+                  muteBtn.classList.add("muted");
+                }
+              });
          }         
            function loadWaveFormTrack7(){
 
@@ -1031,123 +1048,125 @@ audioTrack.on('ready', function(){
               const trashBtn = document.querySelector(".trash-btn");
               const trackBtn = document.getElementById("track7");
               const muteTrackBtn = document.getElementById("pause7");
-              const stopTrackBtn = document.getElementById("stop7");
               const volumeSlider = document.querySelector(".volume-slider");
               const muteBtn = document.querySelector(".mute-btn7");
+              const addTrack = document.querySelector(".add-track7");
               const stopLoopBtn = document.getElementById("loop-stop");
               const stopSyncBtn = document.getElementById("loop-sync");
-              const addSyncBtn = document.getElementById("plus-plus");
+              const addSyncBtn = document.getElementById("plus-plus");        
+              const stopSyncTrackBtn = document.getElementById("loop-sync7");
+              const addSyncTrackBtn = document.getElementById("plus-plus7");
+            
+            
+              addTrack.addEventListener("click", ()=>{
+                audioTrack.destroy();
+              });
+            
             
               addSyncBtn.addEventListener("click", () => {
                 audioTrack.clearRegions(); 
                 audioTrack.addRegion({
-                    id: 7,
-                    start: 6, 
-                    end: 9, 
-                    color: 'hsla(74, 86%, 54%, 0.1)',         
-                    drag: true,
-                    resize: true,
-                    loop:true
-                  });
-              })
+                  id: 7,
+                  start: 6, 
+                  end: 9, 
+                  color: 'hsla(74, 86%, 54%, 0.1)',         
+                  drag: true,
+                  resize: true,
+                  loop:true
+                });});
+  
             
               stopSyncBtn.addEventListener("click", () => {
-              audioTrack.clearRegions(); 
-              });
-
-    
-              stopSyncBtn.addEventListener("click", () => {
-              audioTrack.clearRegions(); 
-              });
-
+                audioTrack.clearRegions(); 
+                });
+            
+                  addSyncTrackBtn.addEventListener("click", () => {
+                audioTrack.clearRegions(); 
+                audioTrack.addRegion({
+                  id: 7,
+                  start: 6, 
+                  end: 9, 
+                  color: 'hsla(74, 86%, 54%, 0.1)',         
+                  drag: true,
+                  resize: true,
+                  loop:true
+                });});
+            
+            
+              stopSyncTrackBtn.addEventListener("click", () => {
+                audioTrack.clearRegions(); 
+                });
+            
+                
+                trackBtn.addEventListener("click", () => {
+                  audioTrack.playPause();
+                  if (audioTrack.isPlaying()) {
+                    playBtn.classList.add("playing");
+                  } else{  
+                      playBtn.classList.remove("playing");
+                   } 
+                });
+            
               
-              trackBtn.addEventListener("click", () => {
-                audioTrack.playPause();
-                if (audioTrack.isPlaying()) {
-                  playBtn.classList.add("playing");
-                } else{  
-                    playBtn.classList.remove("playing");
-                 } 
-              });
+                trashBtn.addEventListener("click",()=>{
+                  audioTrack.destroy();
+                  audioTrack.cancelAjax();
+                });
             
-              trashBtn.addEventListener("click",()=>{
-                audioTrack.destroy();
-                audioTrack.cancelAjax();
-              });
-          
-               
-              playBtn.addEventListener("click", () => {
-                audioTrack.playPause();
-                togglePlayLoop(trackBtn);
-                if (audioTrack.isPlaying()) {
-                  playBtn.classList.add("playing");
-                } else{
-                  playBtn.classList.remove("playing");
-                }
-              });
-          
-            
-              muteTrackBtn.addEventListener("click",()=>{
-                if(audioTrack.isPlaying())
-                {
-                audioTrack.setVolume(0);
-                }else if(audioTrack.getMute() == true){
-                  audioTrack.setVolume(0.6);
-                }
-              });
-            
-           
-              stopTrackBtn.addEventListener("click", () => {   
-                audioTrack.stop();
-                togglePlayLoop(trackBtn);
-                playBtn.classList.remove("playing");
-          
-                  if(playBtn.classList == "playing")
-                  {
+
+                playBtn.addEventListener("click", () => {
+                  audioTrack.playPause();
+                  togglePlay(trackBtn);
+                  if (audioTrack.isPlaying()) {
+                    playBtn.classList.add("playing");
+                  } else{
                     playBtn.classList.remove("playing");
                   }
-                  else
-                  {
-                    playBtn.classList.add("pause");
-                  }
-              });
-          
+                });
             
-              stopLoopBtn.addEventListener("click", () => {
-                audioTrack.stop();
-                togglePlayLoop(trackBtn);
-                playBtn.classList.remove("playing");
-              });
-          
-              
-              volumeSlider.addEventListener("mouseup", () => {
-                changeVolume(volumeSlider.value);
-              });
-          
-              
-              const changeVolume = (volume) => {
-                if (volume == 0) {
-                  muteBtn.classList.add("muted");
-                }
-                 else {
-                  muteBtn.classList.remove("muted");
-                }
-              
-                audioTrack.setVolume(volume);
-              };
-              
-          
-              muteBtn.addEventListener("click", () => {
-                if (muteBtn.classList.contains("muted")) {
-                  muteBtn.classList.remove("muted");
-                  audioTrack.setVolume(0.6);
-                  volumeSlider.value = 0.6;
-                } else {
+            
+                muteTrackBtn.addEventListener("click",()=>{
+                  if(audioTrack.isPlaying())
+                  {
                   audioTrack.setVolume(0);
-                  muteBtn.classList.add("muted");
-                  volumeSlider.value = 0;
-                }
-              });
+                  }else if(audioTrack.getMute() == true){
+                    audioTrack.setVolume(1);
+                  }
+                });
+  
+                stopLoopBtn.addEventListener("click", () => {
+                  audioTrack.stop();
+                  playBtn.classList.remove("playing");
+                  toggleStop(trackBtn);
+                });
+            
+                
+                volumeSlider.addEventListener("mouseup", () => {
+                  changeVolume(volumeSlider.value);
+                });
+            
+                
+                const changeVolume = (volume) => {
+                  if (volume == 0) {
+                    muteBtn.classList.add("muted");
+                  }
+                   else {
+                    muteBtn.classList.remove("muted");
+                  }
+                
+                  audioTrack.setVolume(volume);
+                };
+                
+            
+                muteBtn.addEventListener("click", () => {
+                  if (muteBtn.classList.contains("muted")) {
+                    muteBtn.classList.remove("muted");
+                    audioTrack.setVolume(1);
+                  } else {
+                    audioTrack.setVolume(0);
+                    muteBtn.classList.add("muted");
+                  }
+                });
            }                    
              function loadWaveFormTrack8(){
 
@@ -1178,153 +1197,128 @@ audioTrack.on('ready', function(){
                 const trashBtn = document.querySelector(".trash-btn");
                 const trackBtn = document.getElementById("track8");
                 const muteTrackBtn = document.getElementById("pause8");
-                const stopTrackBtn = document.getElementById("stop8");
                 const volumeSlider = document.querySelector(".volume-slider");
                 const muteBtn = document.querySelector(".mute-btn8");
+                const addTrack = document.querySelector(".add-track8");
                 const stopLoopBtn = document.getElementById("loop-stop");
                 const stopSyncBtn = document.getElementById("loop-sync");
-                const addSyncBtn = document.getElementById("plus-plus");
+                const addSyncBtn = document.getElementById("plus-plus");            
+                const stopSyncTrackBtn = document.getElementById("loop-sync8");
+                const addSyncTrackBtn = document.getElementById("plus-plus8");
+              
+              
+                addTrack.addEventListener("click", ()=>{
+                  audioTrack.destroy();
+                });
+              
               
                 addSyncBtn.addEventListener("click", () => {
                   audioTrack.clearRegions(); 
                   audioTrack.addRegion({
-                      id: 8,
-                      start: 5, 
-                      end: 6, 
-                      color: 'hsla(100, 100%, 30%, 0.1)',         
-                      drag: true,
-                      resize: true,
-                      loop:true
-                    });
-                })
-              
-                stopSyncBtn.addEventListener("click", () => {
-                audioTrack.clearRegions(); 
-                });
-
+                    id: 8,
+                    start: 5, 
+                    end: 6, 
+                    color: 'hsla(100, 100%, 30%, 0.1)',         
+                    drag: true,
+                    resize: true,
+                    loop:true
+                  });});
     
+              
                 stopSyncBtn.addEventListener("click", () => {
-                audioTrack.clearRegions();               
+                  audioTrack.clearRegions(); 
                   });
+              
+                    addSyncTrackBtn.addEventListener("click", () => {
+                  audioTrack.clearRegions(); 
+                  audioTrack.addRegion({
+                    id: 8,
+                    start: 5, 
+                    end: 6, 
+                    color: 'hsla(100, 100%, 30%, 0.1)',         
+                    drag: true,
+                    resize: true,
+                    loop:true
+                  });});
                 
-
-                // } else { 
-                //   audioTrack.on('destroy', function(){
-                //   audioTrack.addRegion({
-                //     id: 8,
-                //     start: 5, 
-                //     end: 6, 
-                //     color: 'hsla(100, 100%, 30%, 0.1)',         
-                //     drag: true,
-                //     resize: true,
-                //     loop:true
-                //   });});
-             
-
-                
-                trackBtn.addEventListener("click", () => {
-                  audioTrack.playPause();
-                  if (audioTrack.isPlaying()) {
-                    playBtn.classList.add("playing");
-                  } else{  
-                      playBtn.classList.remove("playing");
-                   } 
-                   trackBtn.on('audioTrack',function(){
-
-                   })
-                });
               
-                trashBtn.addEventListener("click",()=>{
-                  audioTrack.destroy();
-                  audioTrack.cancelAjax();
-                });
-            
-                 
-                playBtn.addEventListener("click", () => {
-                  audioTrack.playPause();
-                  togglePlayLoop(trackBtn);
-                  if (audioTrack.isPlaying()) {
-                    playBtn.classList.add("playing");
-                  } else{
-                    playBtn.classList.remove("playing");
-                  }
-                });
-            
+                stopSyncTrackBtn.addEventListener("click", () => {
+                  audioTrack.clearRegions(); 
+                  });
               
-                muteTrackBtn.addEventListener("click",()=>{
-                  if(audioTrack.isPlaying())
-                  {
-                  audioTrack.setVolume(0);
-                  }else if(audioTrack.getMute() == true){
-                    audioTrack.setVolume(0.6);
-                  }
-                });
+                  
+                  trackBtn.addEventListener("click", () => {
+                    audioTrack.playPause();
+                    if (audioTrack.isPlaying()) {
+                      playBtn.classList.add("playing");
+                    } else{  
+                        playBtn.classList.remove("playing");
+                     } 
+                  });
               
-             
-                stopTrackBtn.addEventListener("click", () => {   
-                  audioTrack.stop();
-                  togglePlayLoop(trackBtn);
-                  playBtn.classList.remove("playing");
-            
-                    if(playBtn.classList == "playing")
-                    {
+
+                  trashBtn.addEventListener("click",()=>{
+                    audioTrack.destroy();
+                    audioTrack.cancelAjax();
+                  });
+              
+              
+                  playBtn.addEventListener("click", () => {
+                    audioTrack.playPause();
+                    togglePlay(trackBtn);
+                    if (audioTrack.isPlaying()) {
+                      playBtn.classList.add("playing");
+                    } else{
                       playBtn.classList.remove("playing");
                     }
-                    else
+                  });
+              
+              
+                  muteTrackBtn.addEventListener("click",()=>{
+                    if(audioTrack.isPlaying())
                     {
-                      playBtn.classList.add("pause");
-                    }
-                });
-                  // playBtn.classList.remove("playing");
-            
-                  //   if(playBtn.classList == "playing")
-                  //   {
-                  //     playBtn.classList.remove("playing");
-                  //   }
-                  //   else
-                  //   {
-                  //     playBtn.classList.add("pause");
-                  //   }
-                 
-                stopLoopBtn.addEventListener("click", () => {
-                  audioTrack.stop();
-                  togglePlayLoop(trackBtn);
-                  playBtn.classList.remove("playing");
-                });
-            
-                
-                volumeSlider.addEventListener("mouseup", () => {
-                  changeVolume(volumeSlider.value);
-                });
-            
-                
-                const changeVolume = (volume) => {
-                  if (volume == 0) {
-                    muteBtn.classList.add("muted");
-                  }
-                   else {
-                    muteBtn.classList.remove("muted");
-                  }
-                
-                  audioTrack.setVolume(volume);
-                };
-                
-            
-                muteBtn.addEventListener("click", () => {
-                  if (muteBtn.classList.contains("muted")) {
-                    muteBtn.classList.remove("muted");
-                    audioTrack.setVolume(0.6);
-                    volumeSlider.value = 0.6;
-                  } else {
                     audioTrack.setVolume(0);
-                    muteBtn.classList.add("muted");
-                    volumeSlider.value = 0;
-                  }
-                });
+                    }else if(audioTrack.getMute() == true){
+                      audioTrack.setVolume(1);
+                    }
+                  });
+    
+                  stopLoopBtn.addEventListener("click", () => {
+                    audioTrack.stop();
+                    playBtn.classList.remove("playing");
+                    toggleStop(trackBtn);
+                  });
+              
+                  
+                  volumeSlider.addEventListener("mouseup", () => {
+                    changeVolume(volumeSlider.value);
+                  });
+              
+                  
+                  const changeVolume = (volume) => {
+                    if (volume == 0) {
+                      muteBtn.classList.add("muted");
+                    }
+                     else {
+                      muteBtn.classList.remove("muted");
+                    }
+                  
+                    audioTrack.setVolume(volume);
+                  };
+                  
+              
+                  muteBtn.addEventListener("click", () => {
+                    if (muteBtn.classList.contains("muted")) {
+                      muteBtn.classList.remove("muted");
+                      audioTrack.setVolume(1);
+                    } else {
+                      audioTrack.setVolume(0);
+                      muteBtn.classList.add("muted");
+                    }
+                  });
              }
 
 // Note: This is just in the progress of making the app
-
 
               // function playTrack1(){
 
