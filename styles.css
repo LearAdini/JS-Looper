@@ -40,7 +40,7 @@ h1{
   display: absolute;
 }
 
-.br{
+#br,.br{
   border:1px solid rgb(194, 192, 192);
   background-color:rgb(31, 31, 31);
   color:rgb(194, 192, 192);
@@ -56,7 +56,7 @@ h1{
   animation-timing-function:ease-in;
 }
 
-.br:hover{
+#br:hover{
   transform:scale(1.08); 
   background-color:yellowgreen;
   border: 1px solid rgb(31, 31, 31);
@@ -244,36 +244,43 @@ li i:hover{transform:scale(1.1);}
   color: black;
   margin-right: 179px;
   margin-top: -25px;
+  
 }
 
 #info-trash{
   color:white;
   margin-right: 469px;
  margin-top:20px;
+ cursor: default;
 }
 
 #info-plus{
   color:white;
   margin-right: 469px;
+  cursor: default;
 }
 
 #info-sync{
   color:white;
   margin-right: 468px;
   margin-bottom: 45px;
+  cursor: default;
 }
 
 #info-playLoop{
   color:red;
   margin-right: 465px;
+  cursor: default;
 }
 #info-play{
   color:rgb(255, 255, 255);
   margin-right: 465px;
+  cursor: default;
 }
 
 #info-add-inst{
 font-size: 10px;
+cursor: default;
 }
 
 #volume{ margin-right: 80px;margin-top: 15px;}
