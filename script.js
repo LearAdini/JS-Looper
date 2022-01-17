@@ -147,7 +147,13 @@ audioTrack.on('ready', function(){ // When loaded add regions plugin (loop selec
     });
 
 
-    // When plus-plus white button is clicked add loop regions again of this track.
+    // When loop-sync white button is clicked remove loop regions of all track.   
+    stopSyncBtn.addEventListener("click", () => {
+    audioTrack.clearRegions(); 
+    });
+
+
+    // When plus-plus white button is clicked add loop regions again for all tracks.
     addSyncBtn.addEventListener("click", () => {
     audioTrack.clearRegions(); 
     audioTrack.addRegion({
@@ -159,12 +165,6 @@ audioTrack.on('ready', function(){ // When loaded add regions plugin (loop selec
         resize: true,
         loop:true
       });});
-
-
-    // When loop-sync white button is clicked remove loop origins of this track.   
-    stopSyncBtn.addEventListener("click", () => {
-    audioTrack.clearRegions(); 
-    });
 
 
     // When plus-plus red button is clicked add loop regions again of this track.
@@ -181,7 +181,7 @@ audioTrack.on('ready', function(){ // When loaded add regions plugin (loop selec
       });});
 
 
-    // When loop-sync red button is clicked remove loop origins of this track.
+    // When loop-sync red button is clicked remove loop regions of this track.
     stopSyncTrackBtn.addEventListener("click", () => {
     audioTrack.clearRegions(); 
     });
@@ -197,14 +197,8 @@ audioTrack.on('ready', function(){ // When loaded add regions plugin (loop selec
        } 
     });
 
-  
-    // Removes this track from audio container.
-    trashBtn.addEventListener("click",()=>{
-      audioTrack.destroy();
-      audioTrack.cancelAjax();
-    });
 
-
+    
     // When white play button is clicked play or pause this track.
     playBtn.addEventListener("click", () => {
       audioTrack.playPause();
@@ -214,6 +208,13 @@ audioTrack.on('ready', function(){ // When loaded add regions plugin (loop selec
       } else{
         playBtn.classList.remove("playing");
       }
+    });
+
+  
+    // Removes this track from audio container.
+    trashBtn.addEventListener("click",()=>{
+      audioTrack.destroy();
+      audioTrack.cancelAjax();
     });
 
 
@@ -244,7 +245,7 @@ audioTrack.on('ready', function(){ // When loaded add regions plugin (loop selec
       audioTrack.setVolume(volume);
     };
     
-    // if muted set volume to 1, if not muted mute.
+    // if muted set volume to 1, if not muted, mute.
     muteBtn.addEventListener("click", () => {
       if (muteBtn.classList.contains("muted")) {
         muteBtn.classList.remove("muted");
