@@ -85,6 +85,7 @@ li i{
 
 li i:hover{transform:scale(1.1);}
 
+
 .container{
   box-shadow: 0 1rem 1rem 1rem rgba(0, 0, 0, 0.3);
   border-radius: 10px;
@@ -134,7 +135,6 @@ li i:hover{transform:scale(1.1);}
   margin-top: -10px; 
   width: 100%;
   height:75px;
-  display:block;
 }
 
 #github-btn{
@@ -155,6 +155,7 @@ li i:hover{transform:scale(1.1);}
   color:white;
   transition:transform 0.1s;
   animation-duration: 0.5s;
+  /* display: inline-block; */
 }
 
 .fa-github:hover{transform:scale(1.1);}
@@ -164,6 +165,7 @@ li i:hover{transform:scale(1.1);}
   margin-left: 1%;
   background-color: rgba(0, 0, 0, 0);
   border: solid rgba(0, 0, 0, 0);
+  display: inline-block;
 }
 
 .fa-codepen{
@@ -175,9 +177,10 @@ li i:hover{transform:scale(1.1);}
   color:white;
   transition:transform 0.1s;
   animation-duration: 0.5s;
+  display: inline-block;
 }
 
-.fa-codepen:hover{transform:scale(1.1);}
+.fa-codepen:hover{transform:scale(1.1);  display: inline-block;}
 
 .info-btn{
   color:magenta;
