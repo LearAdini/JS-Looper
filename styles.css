@@ -8,11 +8,10 @@ a{text-decoration: none;}
 .btn{margin-left: 10px;}
 
 .banner {
-  text-align:center;
+  margin-left: 34.65%;
   margin-top:110px;
   font-family: 'Rock Salt', cursive;
   font-size:60px;
-  display:block;
   font-weight:bold;
   animation: fadeIn 2s;
   -webkit-animation: fadeIn 2s;
@@ -104,7 +103,7 @@ li i:hover{transform:scale(1.1);}
   border-radius: 10px;
   max-width: 40rem;
   margin-left: 33.65%;
- margin-top:20px;
+  margin-top:20px;
   background-color: rgb(31, 31, 31);
   display: inline-block;
   animation: fadeIn 2s;
