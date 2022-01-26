@@ -1,4 +1,4 @@
-# Awesome Looper
+# JS Looper
 
 *Using:*
 
