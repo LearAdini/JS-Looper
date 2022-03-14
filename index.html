@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Moveo Task - Awesome Looper</title>
+    <title>Awesome Looper</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
@@ -12,6 +12,9 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/1.3.7/wavesurfer.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/1.3.7/plugin/wavesurfer.regions.min.js"></script>
     <script src="script.js"></script>
@@ -23,11 +26,13 @@
       <a href="https://github.com/LearAdini" target="_blank"><button id="github-btn"><i class="fab fa-github fa-3x"></i></button></a>
       <a href="https://codepen.io/LearAdini" target="_blank"><button id="codepen-btn" > <i class="fab fa-codepen fa-fw fa-3x"></i></a>
       </nav>
-
+   <div class="banner">
+   Awesome Looper 
+   </div>
 
     <div class="container">
       <li>
-        <p class="add-track1" id="br" onclick="loadWaveFormTrack1()">
+        <p class="add-track1" id="br" onclick="loadWaveFormTrack('red','drums_.mp3','hsla(254, 84%, 53%, 0.1)','track1','pause1','.mute-btn1','.add-track1','loop-sync1','plus-plus1')">
         <span>Add &nbsp;Drums</span>
          </p>
          <span class="track-btn btn">
@@ -45,7 +50,7 @@
           </li>
 
       <li>
-        <p class="add-track2" id="br" onclick="loadWaveFormTrack2()">
+        <p class="add-track2" id="br" onclick="loadWaveFormTrack('blue','_tambourine_shake_higher.mp3','hsla(74, 86%, 54%, 0.1)','track2','pause2','.mute-btn2','.add-track2','loop-sync2','plus-plus2')">
         <span>Add<span id="tamb"> Tambourine</span></span>
          </p>
          <span class="track-btn btn">
@@ -63,7 +68,7 @@
           </li>
 
           <li>
-            <p class="add-track3" id="br" onclick="loadWaveFormTrack3()">
+            <p class="add-track3" id="br" onclick="loadWaveFormTrack('magenta','JIBRISH.mp3','hsla(0, 100%, 30%, 0.1)','track3','pause3','.mute-btn3','.add-track3','loop-sync3','plus-plus3')">
             <span>Add Jibrish</span>
             </p>
              <span class="track-btn btn">
@@ -81,7 +86,7 @@
             </li>
         
             <li>
-              <p class="add-track4" id="br" onclick="loadWaveFormTrack4()">
+              <p class="add-track4" id="br" onclick="loadWaveFormTrack('yellow','HIGH_VOC.mp3','hsla(187, 100%, 30%, 0.1)','track4','pause4','.mute-btn4','.add-track4','loop-sync4','plus-plus4')">
               <span>Add<br>Lead</span>
               </p>
                <span class="track-btn btn">
@@ -99,7 +104,7 @@
               </li>
         
               <li>
-                <p class="add-track5" id="br" onclick="loadWaveFormTrack5()">
+                <p class="add-track5" id="br" onclick="loadWaveFormTrack('lime','HE_HE_VOC.mp3','hsla(39, 100%, 30%, 0.1)','track5','pause5','.mute-btn5','.add-track5','loop-sync5','plus-plus5')">
                 <span>Add<br>HEHE-VOC</span>
                 </p>
                  <span class="track-btn btn">
@@ -117,7 +122,7 @@
                 </li>
         
                 <li>
-                  <p class="add-track6" id="br" onclick="loadWaveFormTrack6()">
+                  <p class="add-track6" id="br" onclick="loadWaveFormTrack('aqua','B_VOC.mp3','hsla(305, 100%, 30%, 0.1)','track6','pause6','.mute-btn6','.add-track6','loop-sync6','plus-plus6')">
                   <span>Add<br>B-VOC</span>
                    </p>
                    <span class="track-btn btn">
@@ -135,7 +140,7 @@
                   </li>
         
                   <li>
-                    <p class="add-track7" id="br" onclick="loadWaveFormTrack7()">
+                    <p class="add-track7" id="br" onclick="loadWaveFormTrack('orange','LEAD_1.mp3','hsla(305, 100%, 30%, 0.1)','track7','pause7','.mute-btn7','.add-track7','loop-sync7','plus-plus7')">
                     <span>Add<br>High-VOC</span>
                   </p> 
                      <span class="track-btn btn">
@@ -155,7 +160,7 @@
                     </li>
 
                     <li>
-                      <p class="add-track8" id="br" onclick="loadWaveFormTrack8()">
+                      <p class="add-track8" id="br" onclick="loadWaveFormTrack('lightseagreen','UUHO_VOC.mp3','hsla(100, 100%, 30%, 0.1)','track8','pause8','.mute-btn8','.add-track8','loop-sync8','plus-plus8')">
                       <span>Add<br>UUHO-VOC</span>
                       </p>
                       <span class="track-btn btn">

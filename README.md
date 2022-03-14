@@ -1,4 +1,4 @@
-# Moveo Task
+# JS Looper
 
 *Using:*
 
@@ -11,7 +11,7 @@
 
 **● Font-Awesome**
 
-***link:*** **https://moveoproject.herokuapp.com**
+***link:*** **https://awesomelooper.herokuapp.com/**
 
 #
 

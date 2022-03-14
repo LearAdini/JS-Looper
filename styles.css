@@ -7,6 +7,18 @@ a{text-decoration: none;}
 
 .btn{margin-left: 10px;}
 
+.banner {
+  margin-left: 36.65%;
+  margin-top:110px;
+  font-family: 'Sedgwick Ave', cursive;
+  font-size:80px;
+  font-weight:bold;
+  animation: fadeIn 2s;
+  -webkit-animation: fadeIn 2s;
+  -moz-animation: fadeIn 2s;
+  -o-animation: fadeIn 2s;
+  -ms-animation: fadeIn 2s;
+    }
 
 #footer {
   position: fixed;
@@ -85,12 +97,13 @@ li i{
 
 li i:hover{transform:scale(1.1);}
 
+
 .container{
   box-shadow: 0 1rem 1rem 1rem rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   max-width: 40rem;
   margin-left: 33.65%;
-  margin-top: 120px;
+  margin-top:20px;
   background-color: rgb(31, 31, 31);
   display: inline-block;
   animation: fadeIn 2s;
@@ -155,7 +168,11 @@ li i:hover{transform:scale(1.1);}
   color:white;
   transition:transform 0.1s;
   animation-duration: 0.5s;
+<<<<<<< HEAD
   display: inline-block;
+=======
+  /* display: inline-block; */
+>>>>>>> d75ebb2e7c51749bcd50a7c47b07b01d3bed1216
 }
 
 .fa-github:hover{transform:scale(1.1);}
