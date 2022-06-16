@@ -1,21 +1,25 @@
 # JS Looper
 
-*Using:*
-
-
-**● JavaScript**
-
-**● HTML & CSS**
-
-**● Wavesurfer.js**
-
-**● Font-Awesome**
-
 ***link:*** **https://awesomelooper.herokuapp.com/**
+
+### *Technologies Used:*
+
+<table>
+<tbody>
+	<tr>
+		<td>Front-End</td>
+		<td>HTML5, CSS3, JavaScript</td>
+	</tr>
+  	<tr>
+		<td>Miscellaneous</td>
+		<td>Heroku</td>
+	</tr>
+</tbody>
+</table>
 
 #
 
-This is an interview task I made where you can add eight different instruments and play them simultaneously or individually.
+This is a audio looper I made where you can add eight different instruments and play them simultaneously or individually.
 
 You can loop each track and change loop position / length. ***wait for audio cursor to ["hit"](#Loop) the loop start region.***
 
