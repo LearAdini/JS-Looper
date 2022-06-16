@@ -17,8 +17,8 @@ function loadWaveFormTrack(pColor,trackLoad,lColor,trackId,pauseId,muteId,addTra
   audioTrack.on('ready', function(){ // When loaded add regions plugin (loop selection).
     audioTrack.addRegion({
       id: 1,
-      start: 6, // Where loop starts
-      end: 14,// Where loop ends
+      start: 4, // Where loop starts
+      end: 10,// Where loop ends
       color: lColor,   
       drag: true, // Can drag
       resize: true, // Can resize
@@ -165,12 +165,6 @@ function loadWaveFormTrack(pColor,trackLoad,lColor,trackId,pauseId,muteId,addTra
         }
       });
 }
-
-
-// function togglePlayStop(x){
-//   x.classList.toggle("fa-pause");
-//   x.classList.toggle("fa-play");
-// };
 
 function togglePlay(x){
   x.classList.toggle("fa-play");

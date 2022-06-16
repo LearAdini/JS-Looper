@@ -1,4 +1,4 @@
-/* body { background-color: rgb(0, 74, 97)} */
+
 body { background-color: rgb(209, 163, 77)}
 
 p {border: 1.7px solid rgb(160, 160, 160);background-color: rgb(160, 160, 160);}
@@ -7,18 +7,6 @@ a{text-decoration: none;}
 
 .btn{margin-left: 10px;}
 
-.banner {
-  margin-left: 36.65%;
-  margin-top:110px;
-  font-family: 'Sedgwick Ave', cursive;
-  font-size:80px;
-  font-weight:bold;
-  animation: fadeIn 2s;
-  -webkit-animation: fadeIn 2s;
-  -moz-animation: fadeIn 2s;
-  -o-animation: fadeIn 2s;
-  -ms-animation: fadeIn 2s;
-    }
 
 #footer {
   position: fixed;
@@ -39,18 +27,7 @@ a{text-decoration: none;}
   transform:scale(1.1);
 }
 
-h1{
-  text-align: center;
-  font-family: monospace;
-  font-weight: strong;
-  font-size: 26px;
-  animation: fadeIn 1.5s;
-  -webkit-animation: fadeIn 1.5s;
-  -moz-animation: fadeIn 1.5s;
-  -o-animation: fadeIn 1.5s;
-  -ms-animation: fadeIn 1.5s;
-  display: absolute;
-}
+
 
 #br,.br{
   border:1px solid rgb(194, 192, 192);
@@ -59,8 +36,6 @@ h1{
   box-shadow:  0 0.2rem 0.1rem rgba(0, 0, 0, 0.568);
   border-radius: 5px;
   width: 70px;
-  margin-left: 20px;
-  text-align: center;
   cursor: pointer;
   transition:transform 0.4s;
   animation-duration: 2s;
@@ -102,8 +77,7 @@ li i:hover{transform:scale(1.1);}
   box-shadow: 0 1rem 1rem 1rem rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   max-width: 40rem;
-  margin-left: 33.65%;
-  margin-top:20px;
+  margin-top:10%;
   background-color: rgb(31, 31, 31);
   display: inline-block;
   animation: fadeIn 2s;
@@ -163,16 +137,11 @@ li i:hover{transform:scale(1.1);}
   margin-top: 15px;
   width:45px;
   height:45px;
-  align-content: center;
   display: flex;
   color:white;
   transition:transform 0.1s;
   animation-duration: 0.5s;
-<<<<<<< HEAD
   display: inline-block;
-=======
-  /* display: inline-block; */
->>>>>>> d75ebb2e7c51749bcd50a7c47b07b01d3bed1216
 }
 
 .fa-github:hover{transform:scale(1.1);}
