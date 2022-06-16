@@ -11,6 +11,7 @@
 		<td>HTML5, CSS3, JavaScript</td>
 	</tr>
   	<tr>
+		<td>Miscellaneous</td>
 		<td>Heroku</td>
 	</tr>
 </tbody>
