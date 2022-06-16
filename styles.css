@@ -77,7 +77,8 @@ li i:hover{transform:scale(1.1);}
   box-shadow: 0 1rem 1rem 1rem rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   max-width: 40rem;
-  margin-top:10%;
+  margin-top:20%;
+  margin-left:-20%;
   background-color: rgb(31, 31, 31);
   display: inline-block;
   animation: fadeIn 2s;
