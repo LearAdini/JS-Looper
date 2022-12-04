@@ -1,6 +1,6 @@
 # JS Looper
 
-***link:*** **https://awesomelooper.herokuapp.com/**
+***link:*** **https://awesome-looper.onrender.com**
 
 ### *Technologies Used:*
 
