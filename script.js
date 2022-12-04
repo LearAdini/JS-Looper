@@ -237,7 +237,7 @@ function showInfo(){
     var h1 = document.querySelector(".display-text");
    
     h1.innerHTML = `
-    <p id ="info-add-inst" class="br">
+    <p id ="info-add-inst" class="br-info">
     <span class="add-track1">Add<br>Piano</span>  
     </p><h4 id="para-inst">&nbsp;&nbsp;- Add an instrument</h4>
     <br>
