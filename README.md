@@ -12,7 +12,7 @@
 	</tr>
   	<tr>
 		<td>Miscellaneous</td>
-		<td>Heroku</td>
+		<td>Render</td>
 	</tr>
 </tbody>
 </table>
